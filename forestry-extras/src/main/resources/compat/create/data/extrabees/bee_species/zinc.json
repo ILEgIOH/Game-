@@ -1,0 +1,31 @@
+{
+  "authority": "Extra Bees",
+  "body": 12110277,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "metallum",
+  "outline": 8294284,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:zinc_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "create:raw_zinc"
+    }
+  ],
+  "species": "zincum"
+}

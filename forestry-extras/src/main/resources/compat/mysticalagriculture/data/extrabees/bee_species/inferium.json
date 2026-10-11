@@ -1,0 +1,31 @@
+{
+  "authority": "Extra Bees",
+  "body": 8835171,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "mixtum",
+  "outline": 5017390,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:inferium_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "mysticalagriculture:inferium_essence"
+    }
+  ],
+  "species": "inferium"
+}

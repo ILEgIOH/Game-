@@ -13,7 +13,17 @@ Put these in `mods/`:
 ## Build
 `gradle build` -> `build/libs/`.  All JSON is generated: edit `tools/gen_data.py`, then `python3 tools/gen_data.py`.
 
-## Bees (batch 1)
+## Bees
 Cuprous, Ferrous, Auric, Carbonic, Redstone, Lapis, Adamantine (diamond), Verdant Gem (emerald),
 Amethyst, Quartz, Glowing, Blazing, Ancient (netherite), Gelatinous, Prismatic Reef.
 Breeding tree is in the `parents` field of each entry in `tools/gen_data.py`.
+
+### Mod-specific bees (batch 2)
+Loaded only when the other mod is present (built-in datapacks in `compat/`, see `CompatPacks.java`):
+- **Create:** Zincic, Brassy, Andesite
+- **The Aether:** Ambrosial, Zanitic
+- **Mystical Agriculture:** Inferium, Prosperous
+- **DivineRPG:** Arlemite, Realmite, Rupee, Bloodgem, Torrid
+
+Item ids are checked against the real mod jars. Not done yet: Twilight Forest, AE2, Thermal, Draconic Evolution.
+Bees themselves appear in Forestry's own Apiculture creative tab; the Extra Bees tab holds the combs.

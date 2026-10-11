@@ -1,0 +1,32 @@
+{
+  "authority": "Extra Bees",
+  "body": 7333568,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "mixtum",
+  "outline": 3123330,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:prosperity_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "mysticalagriculture:prosperity_shard"
+    }
+  ],
+  "species": "prosperus",
+  "glint": true
+}

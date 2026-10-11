@@ -1,0 +1,7 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.05,
+  "first": "extrabees:arlemite",
+  "second": "extrabees:diamond",
+  "result": "extrabees:realmite"
+}

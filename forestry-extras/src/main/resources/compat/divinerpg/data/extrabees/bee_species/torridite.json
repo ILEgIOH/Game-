@@ -1,0 +1,34 @@
+{
+  "authority": "Extra Bees",
+  "body": 16747056,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_nether"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "materia",
+  "outline": 12732938,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:torridite_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "divinerpg:torridite_ingot"
+    }
+  ],
+  "species": "torridus",
+  "glint": true,
+  "temperature": "hellish",
+  "humidity": "arid"
+}

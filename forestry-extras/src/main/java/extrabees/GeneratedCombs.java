@@ -18,6 +18,24 @@ final class GeneratedCombs {
 		"netherite_comb",
 		"slime_comb",
 		"prismarine_comb",
+		"zinc_comb",
+		"brass_comb",
+		"andesite_comb",
+		"ambrosium_comb",
+		"zanite_comb",
+		"inferium_comb",
+		"prosperity_comb",
+		"arlemite_comb",
+		"realmite_comb",
+		"rupee_comb",
+		"bloodgem_comb",
+		"torridite_comb",
+	};
+	static final String[][] PACKS = {
+		{"create", "Create"},
+		{"aether", "The Aether"},
+		{"mysticalagriculture", "Mystical Agriculture"},
+		{"divinerpg", "DivineRPG"},
 	};
 	static final int[] TINTS = {
 		0xC4703F,
@@ -35,5 +53,17 @@ final class GeneratedCombs {
 		0x52423E,
 		0x6CC95A,
 		0x5CC2B2,
+		0xA9BDB9,
+		0xD6A940,
+		0x9A9A94,
+		0xF2D468,
+		0x9070E0,
+		0x6FBF48,
+		0x4DD4A8,
+		0x4F9DDC,
+		0xDC5858,
+		0x58D468,
+		0xB81E2E,
+		0xE86A18,
 	};
 }

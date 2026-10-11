@@ -1,0 +1,7 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.12,
+  "first": "forestry:common",
+  "second": "forestry:steadfast",
+  "result": "extrabees:andesite"
+}

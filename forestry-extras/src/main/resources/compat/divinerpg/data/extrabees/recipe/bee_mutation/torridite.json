@@ -1,0 +1,13 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.03,
+  "first": "extrabees:realmite",
+  "second": "extrabees:bloodgem",
+  "result": "extrabees:torridite",
+  "conditions": [
+    {
+      "type": "forestry:biome",
+      "biome": "minecraft:is_nether"
+    }
+  ]
+}

@@ -9,7 +9,7 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src', 'ma
 NS = 'extrabees'
 
 # genus -> (english, russian) is not needed; genera are structural taxa under apidae
-GENERA = ['metallum', 'gemma', 'materia']
+GENERA = ['metallum', 'gemma', 'materia', 'mixtum']
 
 # id, genus, epithet, outline, body, comb tint, ru name, en name, desc,
 # parents (a, b, chance, [conditions]), resource item, wax-comb extras, flower, temp, humidity, glint
@@ -66,6 +66,53 @@ BEES = [
          en='Prismatic Reef', ru='Призмариновая', item='minecraft:prismarine_shard', flower='forestry:flower_type_sea', hum='damp',
          desc='Hums the sound of distant guardians.', parents=('forestry:aquatic', 'forestry:imperial', 0.08, [cond_hum('damp', 'damp')])),
 ]
+
+
+NETHER_T = dict(temp='hellish', hum='arid')
+COMPAT = [
+    # Create
+    dict(pack='create', id='zinc', genus='metallum', epithet='zincum', outline=0x7E8F8C, body=0xB8C9C5, tint=0xA9BDB9,
+         en='Zincic', ru='Цинковая', item='create:raw_zinc', desc='Quiet, cold and very good at conducting gossip.',
+         parents=('extrabees:copper', 'forestry:rural', 0.10, [])),
+    dict(pack='create', id='brass', genus='metallum', epithet='orichalcum', outline=0xB8872E, body=0xE8C060, tint=0xD6A940,
+         en='Brassy', ru='Латунная', item='create:brass_ingot', desc='Gears turn better when it hums.',
+         parents=('extrabees:zinc', 'extrabees:copper', 0.08, [])),
+    dict(pack='create', id='andesite', genus='mixtum', epithet='andesitum', outline=0x7A7A76, body=0xA9A9A3, tint=0x9A9A94,
+         en='Andesite', ru='Андезитовая', item='create:andesite_alloy', desc='A hobbyist engineer in a bee suit.',
+         parents=('forestry:common', 'forestry:steadfast', 0.12, [])),
+    # The Aether
+    dict(pack='aether', id='ambrosium', genus='mixtum', epithet='ambrosius', outline=0xD8B94A, body=0xFFE890, tint=0xF2D468,
+         en='Ambrosial', ru='Амброзиевая', item='aether:ambrosium_shard', desc='Floats a little when nobody is looking.',
+         parents=('forestry:cultivated', 'extrabees:gold', 0.10, [])),
+    dict(pack='aether', id='zanite', genus='gemma', epithet='zanites', outline=0x6A4FC4, body=0xA68BF2, tint=0x9070E0, glint=True,
+         en='Zanitic', ru='Занитовая', item='aether:zanite_gemstone', desc='Gets stronger the more it is used.',
+         parents=('extrabees:ambrosium', 'extrabees:diamond', 0.06, [])),
+    # Mystical Agriculture
+    dict(pack='mysticalagriculture', id='inferium', genus='mixtum', epithet='inferium', outline=0x4C8F2E, body=0x86D063, tint=0x6FBF48,
+         en='Inferium', ru='Инфериумная', item='mysticalagriculture:inferium_essence', desc='Grows crops by staring at them.',
+         parents=('forestry:diligent', 'forestry:common', 0.20, [])),
+    dict(pack='mysticalagriculture', id='prosperity', genus='mixtum', epithet='prosperus', outline=0x2FA882, body=0x6FE6C0, tint=0x4DD4A8, glint=True,
+         en='Prosperous', ru='Процветающая', item='mysticalagriculture:prosperity_shard', desc='Smells like a good harvest.',
+         parents=('extrabees:inferium', 'extrabees:emerald', 0.07, [])),
+    # DivineRPG
+    dict(pack='divinerpg', id='arlemite', genus='gemma', epithet='arlemitus', outline=0x2E7AB8, body=0x6FB8F0, tint=0x4F9DDC,
+         en='Arlemite', ru='Арлемитовая', item='divinerpg:arlemite_ingot', desc='Blue and unbothered.',
+         parents=('extrabees:iron', 'extrabees:lapis', 0.08, [])),
+    dict(pack='divinerpg', id='realmite', genus='gemma', epithet='realmitus', outline=0xC43A3A, body=0xF07878, tint=0xDC5858,
+         en='Realmite', ru='Реалмитовая', item='divinerpg:realmite_ingot', desc='Takes itself very seriously.',
+         parents=('extrabees:arlemite', 'extrabees:diamond', 0.05, [])),
+    dict(pack='divinerpg', id='rupee', genus='gemma', epithet='rupeus', outline=0x2FB04A, body=0x7FE88C, tint=0x58D468,
+         en='Rupee', ru='Рупиевая', item='divinerpg:rupee_ingot', desc='Counts everything twice.',
+         parents=('extrabees:emerald', 'forestry:noble', 0.06, [])),
+    dict(pack='divinerpg', id='bloodgem', genus='gemma', epithet='sanguineus', outline=0x8A0F1C, body=0xD22A3A, tint=0xB81E2E, flower='forestry:flower_type_nether', **NETHER_T,
+         en='Bloodgem', ru='Кровавая', item='divinerpg:bloodgem', desc='Do not ask where the honey comes from.',
+         parents=('extrabees:redstone', 'forestry:demonic', 0.07, NETHER)),
+    dict(pack='divinerpg', id='torridite', genus='materia', epithet='torridus', outline=0xC24A0A, body=0xFF8A30, tint=0xE86A18, flower='forestry:flower_type_nether', glint=True, **NETHER_T,
+         en='Torrid', ru='Торридитовая', item='divinerpg:torridite_ingot', desc='Burning with ambition.',
+         parents=('extrabees:realmite', 'extrabees:bloodgem', 0.03, NETHER)),
+]
+COMPAT_MODS = {'create': 'Create', 'aether': 'The Aether', 'mysticalagriculture': 'Mystical Agriculture', 'divinerpg': 'DivineRPG'}
+BEES += COMPAT
 
 def write(path, data, raw=False):
     full = os.path.join(ROOT, path)
@@ -125,14 +172,15 @@ def main():
         if b.get('glint'): sp['glint'] = True
         if b.get('temp'): sp['temperature'] = b['temp']
         if b.get('hum'): sp['humidity'] = b['hum']
-        write(f'data/{NS}/bee_species/{bid}.json', sp)
+        droot = f'compat/{b["pack"]}/data' if b.get('pack') else 'data'
+        write(f'{droot}/{NS}/bee_species/{bid}.json', sp)
 
         a, c, chance, conds = b['parents']
         mut = {'type': 'forestry:bee_mutation', 'chance': chance, 'first': a, 'second': c, 'result': f'{NS}:{bid}'}
         if conds: mut['conditions'] = conds
-        write(f'data/{NS}/recipe/bee_mutation/{bid}.json', mut)
+        write(f'{droot}/{NS}/recipe/bee_mutation/{bid}.json', mut)
 
-        write(f'data/{NS}/recipe/centrifuge/{comb}.json', {
+        write(f'{droot}/{NS}/recipe/centrifuge/{comb}.json', {
             'type': 'forestry:centrifuge',
             'input': {'item': f'{NS}:{comb}'},
             'products': [{'chance': 1.0, 'item': 'forestry:beeswax'}, {'chance': 0.4, 'item': b['item']}],
@@ -155,9 +203,12 @@ def main():
     write('data/forestry/tags/item/combs.json', {'replace': False, 'values': [f'{NS}:{c}' for c in comb_ids]})
     png(f'assets/{NS}/textures/item/comb.png', 16, 16, comb_pixel)
 
+    for pid, title in COMPAT_MODS.items():
+        write(f'compat/{pid}/pack.mcmeta', {'pack': {'description': f'Extra Bees: {title} bees', 'pack_format': 48}})
     # Java side reads this list
     java = 'package extrabees;\n\n// generated by tools/gen_data.py, do not edit\nfinal class GeneratedCombs {\n'
     java += '\tstatic final String[] IDS = {\n' + ''.join(f'\t\t"{c}",\n' for c in comb_ids) + '\t};\n'
+    java += '\tstatic final String[][] PACKS = {\n' + ''.join(f'\t\t{{"{k}", "{v}"}},\n' for k, v in COMPAT_MODS.items()) + '\t};\n'
     java += '\tstatic final int[] TINTS = {\n' + ''.join(f'\t\t0x{tints[c]:06X},\n' for c in comb_ids) + '\t};\n}\n'
     full = os.path.join(ROOT, '..', 'java', 'extrabees', 'GeneratedCombs.java')
     open(full, 'w').write(java)

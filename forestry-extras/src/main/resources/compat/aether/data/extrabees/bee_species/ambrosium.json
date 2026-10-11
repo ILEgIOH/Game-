@@ -1,0 +1,31 @@
+{
+  "authority": "Extra Bees",
+  "body": 16771216,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "mixtum",
+  "outline": 14203210,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:ambrosium_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "aether:ambrosium_shard"
+    }
+  ],
+  "species": "ambrosius"
+}

@@ -1,0 +1,32 @@
+{
+  "authority": "Extra Bees",
+  "body": 10914802,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "gemma",
+  "outline": 6967236,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:zanite_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "aether:zanite_gemstone"
+    }
+  ],
+  "species": "zanites",
+  "glint": true
+}

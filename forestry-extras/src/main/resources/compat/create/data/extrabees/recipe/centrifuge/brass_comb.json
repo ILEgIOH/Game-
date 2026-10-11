@@ -1,0 +1,17 @@
+{
+  "type": "forestry:centrifuge",
+  "input": {
+    "item": "extrabees:brass_comb"
+  },
+  "products": [
+    {
+      "chance": 1.0,
+      "item": "forestry:beeswax"
+    },
+    {
+      "chance": 0.4,
+      "item": "create:brass_ingot"
+    }
+  ],
+  "time": 20
+}

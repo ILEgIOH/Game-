@@ -1,0 +1,31 @@
+{
+  "authority": "Extra Bees",
+  "body": 15759480,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "gemma",
+  "outline": 12859962,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:realmite_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "divinerpg:realmite_ingot"
+    }
+  ],
+  "species": "realmitus"
+}
