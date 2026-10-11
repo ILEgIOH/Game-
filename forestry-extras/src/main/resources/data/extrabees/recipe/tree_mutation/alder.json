@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/alder",
+  "chance": 0.08,
+  "first": "forestry:birch",
+  "second": "forestry:willow",
+  "result": "extrabees:alder"
+}

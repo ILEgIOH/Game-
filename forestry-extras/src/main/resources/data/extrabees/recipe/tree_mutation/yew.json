@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/yew",
+  "chance": 0.05,
+  "first": "extrabees:juniper",
+  "second": "extrabees:holly",
+  "result": "extrabees:yew"
+}

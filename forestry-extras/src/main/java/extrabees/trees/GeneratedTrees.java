@@ -6,5 +6,17 @@ final class GeneratedTrees {
 		new TreeDef("ash", "fraxinus", "excelsior", TreeDef.Shape.OVAL, 7, 4, 3, 0x8A847A, 0x7AA83E),
 		new TreeDef("cedar", "cedrus", "libani", TreeDef.Shape.CONE, 10, 6, 3, 0x9A5A3E, 0x3F7F5A),
 		new TreeDef("aspen", "populus", "tremula", TreeDef.Shape.COLUMN, 8, 5, 2, 0xD8D8CC, 0xC0C83A),
+		new TreeDef("alder", "alnus", "glutinosa", TreeDef.Shape.OVAL, 6, 4, 3, 0x5A4A3A, 0x5E9438),
+		new TreeDef("hazel", "corylus", "avellana", TreeDef.Shape.OVAL, 4, 3, 2, 0x8A6A44, 0x86B040),
+		new TreeDef("hornbeam", "carpinus", "betulus", TreeDef.Shape.OVAL, 7, 4, 3, 0x909088, 0x6A9C3C),
+		new TreeDef("hawthorn", "crataegus", "monogyna", TreeDef.Shape.OVAL, 4, 3, 2, 0xD8A0A8, 0x6EA040),
+		new TreeDef("rowan", "sorbus", "aucuparia", TreeDef.Shape.OVAL, 5, 3, 2, 0xC8402C, 0xC09A38),
+		new TreeDef("juniper", "juniperus", "communis", TreeDef.Shape.CONE, 5, 3, 2, 0x3C6A5C, 0x5C9488),
+		new TreeDef("cypress", "cupressus", "sempervirens", TreeDef.Shape.COLUMN, 12, 6, 2, 0x2C4A38, 0x3F6A4C),
+		new TreeDef("sycamore", "acer", "pseudoplatanus", TreeDef.Shape.BROAD, 6, 4, 4, 0xA0884C, 0x7EAE3A),
+		new TreeDef("horse_chestnut", "aesculus", "hippocastanum", TreeDef.Shape.BROAD, 7, 4, 4, 0xB89060, 0x70A83A),
+		new TreeDef("eucalyptus", "eucalyptus", "globulus", TreeDef.Shape.COLUMN, 12, 7, 3, 0x7E9C98, 0x9CBFAA),
+		new TreeDef("holly", "ilex", "aquifolium", TreeDef.Shape.CONE, 5, 3, 2, 0x1E5A32, 0x2C7A40),
+		new TreeDef("yew", "taxus", "baccata", TreeDef.Shape.OVAL, 6, 3, 3, 0x2E4A2E, 0x3C6A44),
 	};
 }

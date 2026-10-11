@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/eucalyptus",
+  "chance": 0.06,
+  "first": "forestry:acacia",
+  "second": "forestry:jacaranda",
+  "result": "extrabees:eucalyptus"
+}

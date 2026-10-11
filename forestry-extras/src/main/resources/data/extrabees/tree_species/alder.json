@@ -1,0 +1,21 @@
+{
+  "dominant": true,
+  "escritoire_color": 5917242,
+  "genome": {
+    "forestry:height": {
+      "value": 1.0
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "alnus",
+  "rarity": 0.003,
+  "species": "glutinosa",
+  "humidity": "damp"
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/holly_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/holly_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/holly_slab_top"
+    }
+  }
+}

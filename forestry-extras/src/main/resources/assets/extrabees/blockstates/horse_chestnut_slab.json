@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/horse_chestnut_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/horse_chestnut_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/horse_chestnut_slab_top"
+    }
+  }
+}

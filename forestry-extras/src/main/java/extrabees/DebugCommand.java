@@ -21,6 +21,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 
+import extrabees.trees.ModTrees;
 import forestry.api.IForestryApi;
 import forestry.api.arboriculture.ITreeSpecies;
 import forestry.api.core.genetics.ForestrySpeciesTypes;
@@ -87,7 +88,9 @@ public final class DebugCommand {
 		}
 		ServerLevel level = event.getServer().overworld();
 		int x = 0;
-		for (String name : new String[]{"ash", "cedar", "aspen", "nosuchtree"}) {
+		java.util.List<String> names = new java.util.ArrayList<>(ModTrees.ids());
+		names.add("nosuchtree");
+		for (String name : names) {
 			BlockPos column = new BlockPos(x, 0, 0);
 			level.getChunk(column);
 			BlockPos ground = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, column);

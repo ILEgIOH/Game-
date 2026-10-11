@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:alder_log",
+    "extrabees:alder_wood",
+    "extrabees:stripped_alder_log",
+    "extrabees:stripped_alder_wood"
+  ]
+}

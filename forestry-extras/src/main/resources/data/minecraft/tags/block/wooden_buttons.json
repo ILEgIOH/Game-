@@ -1,8 +1,20 @@
 {
   "replace": false,
   "values": [
+    "extrabees:alder_button",
     "extrabees:ash_button",
     "extrabees:aspen_button",
-    "extrabees:cedar_button"
+    "extrabees:cedar_button",
+    "extrabees:cypress_button",
+    "extrabees:eucalyptus_button",
+    "extrabees:hawthorn_button",
+    "extrabees:hazel_button",
+    "extrabees:holly_button",
+    "extrabees:hornbeam_button",
+    "extrabees:horse_chestnut_button",
+    "extrabees:juniper_button",
+    "extrabees:rowan_button",
+    "extrabees:sycamore_button",
+    "extrabees:yew_button"
   ]
 }

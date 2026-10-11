@@ -1,8 +1,20 @@
 {
   "replace": false,
   "values": [
+    "extrabees:alder_stairs",
     "extrabees:ash_stairs",
     "extrabees:aspen_stairs",
-    "extrabees:cedar_stairs"
+    "extrabees:cedar_stairs",
+    "extrabees:cypress_stairs",
+    "extrabees:eucalyptus_stairs",
+    "extrabees:hawthorn_stairs",
+    "extrabees:hazel_stairs",
+    "extrabees:holly_stairs",
+    "extrabees:hornbeam_stairs",
+    "extrabees:horse_chestnut_stairs",
+    "extrabees:juniper_stairs",
+    "extrabees:rowan_stairs",
+    "extrabees:sycamore_stairs",
+    "extrabees:yew_stairs"
   ]
 }

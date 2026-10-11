@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/yew_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/yew_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/yew_slab_top"
+    }
+  }
+}

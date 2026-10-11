@@ -1,0 +1,21 @@
+{
+  "dominant": true,
+  "escritoire_color": 2902584,
+  "genome": {
+    "forestry:height": {
+      "value": 1.25
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "cupressus",
+  "rarity": 0.003,
+  "species": "sempervirens",
+  "temperature": "warm"
+}

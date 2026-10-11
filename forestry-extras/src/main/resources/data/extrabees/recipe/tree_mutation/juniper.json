@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/juniper",
+  "chance": 0.08,
+  "first": "extrabees:cedar",
+  "second": "forestry:spruce",
+  "result": "extrabees:juniper"
+}

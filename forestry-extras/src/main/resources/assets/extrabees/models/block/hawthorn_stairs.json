@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "extrabees:block/hawthorn_planks",
+    "side": "extrabees:block/hawthorn_planks",
+    "top": "extrabees:block/hawthorn_planks"
+  }
+}

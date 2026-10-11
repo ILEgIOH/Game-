@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "extrabees:block/hornbeam_planks",
+    "side": "extrabees:block/hornbeam_planks",
+    "top": "extrabees:block/hornbeam_planks"
+  }
+}

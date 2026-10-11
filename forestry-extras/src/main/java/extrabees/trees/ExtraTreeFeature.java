@@ -110,6 +110,15 @@ final class ExtraTreeFeature extends Feature<NoneFeatureConfiguration> {
 				double t = 1 - Math.pow((y - mid) / half, 2);
 				return Math.max(0.4, radius * Math.sqrt(Math.max(t, 0)));
 			}
+			case BROAD -> {
+				int vr = Math.max(2, radius / 2 + 1);
+				int centre = height - vr + 2;
+				double dy = (double) (y - centre) / vr;
+				if (Math.abs(dy) > 1) {
+					return 0;
+				}
+				return Math.max(0.4, radius * Math.sqrt(1 - dy * dy));
+			}
 			default -> {
 				int vr = radius + 1;
 				int centre = height - radius + 1;

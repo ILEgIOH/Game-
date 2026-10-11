@@ -1,0 +1,22 @@
+{
+  "dominant": true,
+  "escritoire_color": 8297624,
+  "genome": {
+    "forestry:height": {
+      "value": 1.25
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "eucalyptus",
+  "rarity": 0.003,
+  "species": "globulus",
+  "temperature": "warm",
+  "humidity": "arid"
+}

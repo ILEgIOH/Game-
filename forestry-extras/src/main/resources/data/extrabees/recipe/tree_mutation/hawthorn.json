@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/hawthorn",
+  "chance": 0.07,
+  "first": "forestry:plum",
+  "second": "forestry:pear",
+  "result": "extrabees:hawthorn"
+}

@@ -1,8 +1,20 @@
 {
   "replace": false,
   "values": [
+    "extrabees:alder_slab",
     "extrabees:ash_slab",
     "extrabees:aspen_slab",
-    "extrabees:cedar_slab"
+    "extrabees:cedar_slab",
+    "extrabees:cypress_slab",
+    "extrabees:eucalyptus_slab",
+    "extrabees:hawthorn_slab",
+    "extrabees:hazel_slab",
+    "extrabees:holly_slab",
+    "extrabees:hornbeam_slab",
+    "extrabees:horse_chestnut_slab",
+    "extrabees:juniper_slab",
+    "extrabees:rowan_slab",
+    "extrabees:sycamore_slab",
+    "extrabees:yew_slab"
   ]
 }

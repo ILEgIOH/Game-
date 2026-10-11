@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:horse_chestnut_log",
+    "extrabees:horse_chestnut_wood",
+    "extrabees:stripped_horse_chestnut_log",
+    "extrabees:stripped_horse_chestnut_wood"
+  ]
+}

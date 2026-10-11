@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "extrabees:block/cypress_leaves"
+  }
+}

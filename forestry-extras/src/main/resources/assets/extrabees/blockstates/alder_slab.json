@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/alder_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/alder_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/alder_slab_top"
+    }
+  }
+}

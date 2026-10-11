@@ -1,8 +1,20 @@
 {
   "replace": false,
   "values": [
+    "extrabees:alder_leaves",
     "extrabees:ash_leaves",
     "extrabees:aspen_leaves",
-    "extrabees:cedar_leaves"
+    "extrabees:cedar_leaves",
+    "extrabees:cypress_leaves",
+    "extrabees:eucalyptus_leaves",
+    "extrabees:hawthorn_leaves",
+    "extrabees:hazel_leaves",
+    "extrabees:holly_leaves",
+    "extrabees:hornbeam_leaves",
+    "extrabees:horse_chestnut_leaves",
+    "extrabees:juniper_leaves",
+    "extrabees:rowan_leaves",
+    "extrabees:sycamore_leaves",
+    "extrabees:yew_leaves"
   ]
 }

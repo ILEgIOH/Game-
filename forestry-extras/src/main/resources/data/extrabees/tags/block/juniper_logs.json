@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:juniper_log",
+    "extrabees:juniper_wood",
+    "extrabees:stripped_juniper_log",
+    "extrabees:stripped_juniper_wood"
+  ]
+}

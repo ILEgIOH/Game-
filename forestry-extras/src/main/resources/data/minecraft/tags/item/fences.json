@@ -1,8 +1,20 @@
 {
   "replace": false,
   "values": [
+    "extrabees:alder_fence",
     "extrabees:ash_fence",
     "extrabees:aspen_fence",
-    "extrabees:cedar_fence"
+    "extrabees:cedar_fence",
+    "extrabees:cypress_fence",
+    "extrabees:eucalyptus_fence",
+    "extrabees:hawthorn_fence",
+    "extrabees:hazel_fence",
+    "extrabees:holly_fence",
+    "extrabees:hornbeam_fence",
+    "extrabees:horse_chestnut_fence",
+    "extrabees:juniper_fence",
+    "extrabees:rowan_fence",
+    "extrabees:sycamore_fence",
+    "extrabees:yew_fence"
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/horse_chestnut",
+  "chance": 0.06,
+  "first": "forestry:chestnut",
+  "second": "extrabees:sycamore",
+  "result": "extrabees:horse_chestnut"
+}

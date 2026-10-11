@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/hawthorn_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/hawthorn_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/hawthorn_slab_top"
+    }
+  }
+}

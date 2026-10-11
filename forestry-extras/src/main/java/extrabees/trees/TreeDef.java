@@ -6,7 +6,7 @@ import extrabees.ExtraBees;
 
 record TreeDef(String id, String genus, String species, Shape shape, int baseHeight, int heightVar, int radius, int escritoire, int leafColor) {
 	enum Shape {
-		OVAL, CONE, COLUMN
+		OVAL, CONE, COLUMN, BROAD
 	}
 
 	ResourceLocation speciesId() {

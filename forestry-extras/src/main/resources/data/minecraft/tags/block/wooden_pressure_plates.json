@@ -1,8 +1,20 @@
 {
   "replace": false,
   "values": [
+    "extrabees:alder_pressure_plate",
     "extrabees:ash_pressure_plate",
     "extrabees:aspen_pressure_plate",
-    "extrabees:cedar_pressure_plate"
+    "extrabees:cedar_pressure_plate",
+    "extrabees:cypress_pressure_plate",
+    "extrabees:eucalyptus_pressure_plate",
+    "extrabees:hawthorn_pressure_plate",
+    "extrabees:hazel_pressure_plate",
+    "extrabees:holly_pressure_plate",
+    "extrabees:hornbeam_pressure_plate",
+    "extrabees:horse_chestnut_pressure_plate",
+    "extrabees:juniper_pressure_plate",
+    "extrabees:rowan_pressure_plate",
+    "extrabees:sycamore_pressure_plate",
+    "extrabees:yew_pressure_plate"
   ]
 }

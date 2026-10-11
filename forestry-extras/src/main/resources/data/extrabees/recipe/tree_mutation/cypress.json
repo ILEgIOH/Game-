@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/cypress",
+  "chance": 0.06,
+  "first": "extrabees:juniper",
+  "second": "forestry:olive",
+  "result": "extrabees:cypress"
+}

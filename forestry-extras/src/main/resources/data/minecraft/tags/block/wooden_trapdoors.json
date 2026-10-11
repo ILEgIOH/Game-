@@ -1,8 +1,20 @@
 {
   "replace": false,
   "values": [
+    "extrabees:alder_trapdoor",
     "extrabees:ash_trapdoor",
     "extrabees:aspen_trapdoor",
-    "extrabees:cedar_trapdoor"
+    "extrabees:cedar_trapdoor",
+    "extrabees:cypress_trapdoor",
+    "extrabees:eucalyptus_trapdoor",
+    "extrabees:hawthorn_trapdoor",
+    "extrabees:hazel_trapdoor",
+    "extrabees:holly_trapdoor",
+    "extrabees:hornbeam_trapdoor",
+    "extrabees:horse_chestnut_trapdoor",
+    "extrabees:juniper_trapdoor",
+    "extrabees:rowan_trapdoor",
+    "extrabees:sycamore_trapdoor",
+    "extrabees:yew_trapdoor"
   ]
 }

@@ -16,7 +16,11 @@ JAVA = os.path.join(ROOT, 'java', 'extrabees', 'trees')
 VANILLA_JAR = os.environ.get('VANILLA_JAR', '/root/.gradle/caches/neoformruntime/artifacts/minecraft_1.21.1_client.jar')
 
 # new genera: name -> parent family (families already exist in Forestry's taxonomy)
-GENERA = {'fraxinus': 'oleaceae', 'cedrus': 'pinaceae'}
+GENERA = {'fraxinus': 'oleaceae', 'cedrus': 'pinaceae', 'alnus': 'betulaceae', 'corylus': 'betulaceae', 'carpinus': 'betulaceae',
+          'crataegus': 'rosaceae', 'sorbus': 'rosaceae', 'juniperus': 'cupressaceae', 'cupressus': 'cupressaceae',
+          'aesculus': 'sapindaceae', 'eucalyptus': 'myrtaceae', 'ilex': 'aquifoliaceae', 'taxus': 'taxaceae'}
+# taxa above genus that Forestry does not have yet: name -> parent (rank is derived from the parent)
+EXTRA_TAXA = {'aquifoliales': 'magnoliopsida', 'aquifoliaceae': 'aquifoliales', 'taxaceae': '%CUPRESSALES%'}
 
 # shape: OVAL | CONE | COLUMN
 TREES = [
@@ -38,6 +42,39 @@ TREES = [
          temperature=None, humidity='damp', height=1.0, maturation=None,
          bark=(0x6E6E64, 0xD8D8CC), planks=(0xC8BFA0, 0xEFE6C8), stripped=(0xD0C7A8, 0xF4ECD0), leaf=(0x5E7E1C, 0xC0C83A),
          parents=('forestry:poplar', 'forestry:birch', 0.08)),
+]
+
+def tree(id, genus, species, en, ru, ru_gen, desc, shape, base, var, radius, color, bark, planks, stripped, leaf, parents,
+         rarity=0.003, temperature=None, humidity=None, height=1.0):
+    return dict(id=id, genus=genus, species=species, en=en, ru=ru, ru_gen=ru_gen, desc=desc, shape=shape, base_height=base, height_var=var,
+                radius=radius, escritoire=color, rarity=rarity, temperature=temperature, humidity=humidity, height=height, maturation=None,
+                bark=bark, planks=planks, stripped=stripped, leaf=leaf, parents=parents)
+
+TREES += [
+    tree('alder', 'alnus', 'glutinosa', 'Alder', 'Ольха', 'ольхи', 'Loves wet feet. Its wood turns red when cut.', 'OVAL', 6, 4, 3, 0x5A4A3A,
+         (0x2E2620, 0x6E5A48), (0xB07A50, 0xE0AE7C), (0xBC8658, 0xEBB886), (0x244A22, 0x5E9438), ('forestry:birch', 'forestry:willow', 0.08), humidity='damp'),
+    tree('hazel', 'corylus', 'avellana', 'Hazel', 'Лещина', 'лещины', 'A bushy little tree, forever shedding nuts into the grass.', 'OVAL', 4, 3, 2, 0x8A6A44,
+         (0x4A3826, 0x9A7A52), (0xC8A06A, 0xEEC890), (0xD0A870, 0xF2D09A), (0x3E6E26, 0x86B040), ('forestry:birch', 'extrabees:alder', 0.08)),
+    tree('hornbeam', 'carpinus', 'betulus', 'Hornbeam', 'Граб', 'граба', 'Dense, hard wood. Hedges made of it outlast their gardeners.', 'OVAL', 7, 4, 3, 0x909088,
+         (0x504E48, 0xA6A49A), (0xD0C09C, 0xF0E4C0), (0xD8C8A4, 0xF4E8C8), (0x2C5A24, 0x6A9C3C), ('forestry:beech', 'forestry:birch', 0.07)),
+    tree('hawthorn', 'crataegus', 'monogyna', 'Hawthorn', 'Боярышник', 'боярышника', 'Thorny and stubborn, with blossoms that smell faintly of trouble.', 'OVAL', 4, 3, 2, 0xD8A0A8,
+         (0x3C3028, 0x806C58), (0xB89068, 0xE8C090), (0xC49A70, 0xF0CA9A), (0x2A5624, 0x6EA040), ('forestry:plum', 'forestry:pear', 0.07)),
+    tree('rowan', 'sorbus', 'aucuparia', 'Rowan', 'Рябина', 'рябины', 'Wards off bad luck, and sometimes bad bees.', 'OVAL', 5, 3, 2, 0xC8402C,
+         (0x6A6058, 0xB8AEA2), (0xC09468, 0xEAC692), (0xCA9E70, 0xF2D09C), (0x486A24, 0xC09A38), ('extrabees:hawthorn', 'forestry:birch', 0.07), temperature='cold'),
+    tree('juniper', 'juniperus', 'communis', 'Juniper', 'Можжевельник', 'можжевельника', 'A prickly evergreen that survives where nothing else will.', 'CONE', 5, 3, 2, 0x3C6A5C,
+         (0x5A4234, 0xA68468), (0xC8A478, 0xEED0A2), (0xD0AC80, 0xF2D8AA), (0x264A44, 0x5C9488), ('extrabees:cedar', 'forestry:spruce', 0.08), temperature='cold'),
+    tree('cypress', 'cupressus', 'sempervirens', 'Cypress', 'Кипарис', 'кипариса', 'A tall dark candle of a tree, favoured by cemeteries and poets.', 'COLUMN', 12, 6, 2, 0x2C4A38,
+         (0x4E3C30, 0x92705A), (0xBE9060, 0xE8BE8C), (0xC89A6A, 0xF0C896), (0x1E3A2A, 0x3F6A4C), ('extrabees:juniper', 'forestry:olive', 0.06), temperature='warm', height=1.25),
+    tree('sycamore', 'acer', 'pseudoplatanus', 'Sycamore', 'Явор', 'явора', 'Wide and shady. Its seeds spin like tiny helicopters.', 'BROAD', 6, 4, 4, 0xA0884C,
+         (0x56483A, 0xB0A090), (0xCCB88A, 0xF2E4B6), (0xD4C092, 0xF6E8BE), (0x2E5E26, 0x7EAE3A), ('forestry:maple', 'extrabees:ash', 0.07)),
+    tree('horse_chestnut', 'aesculus', 'hippocastanum', 'Horse Chestnut', 'Конский каштан', 'конского каштана', 'Candle-like flowers in spring, conkers in autumn.', 'BROAD', 7, 4, 4, 0xB89060,
+         (0x46382C, 0x907A62), (0xC8A272, 0xEECC9C), (0xD0AA7A, 0xF2D4A4), (0x2A5C22, 0x70A83A), ('forestry:chestnut', 'extrabees:sycamore', 0.06)),
+    tree('eucalyptus', 'eucalyptus', 'globulus', 'Eucalyptus', 'Эвкалипт', 'эвкалипта', 'Sheds its bark in ribbons and smells of medicine.', 'COLUMN', 12, 7, 3, 0x7E9C98,
+         (0x6E6E5E, 0xC4CAB8), (0xC8A884, 0xEED2AA), (0xD0B08C, 0xF2DAB4), (0x4A6E5E, 0x9CBFAA), ('forestry:acacia', 'forestry:jacaranda', 0.06), temperature='warm', humidity='arid', height=1.25),
+    tree('holly', 'ilex', 'aquifolium', 'Holly', 'Падуб', 'падуба', 'Glossy leaves with a bad attitude. Stays green all winter.', 'CONE', 5, 3, 2, 0x1E5A32,
+         (0x4A4036, 0x948672), (0xD4C8A8, 0xF4ECD2), (0xDCD0B0, 0xF8F0D8), (0x16401E, 0x2C7A40), ('extrabees:hawthorn', 'forestry:spruce', 0.07), temperature='cold'),
+    tree('yew', 'taxus', 'baccata', 'Yew', 'Тис', 'тиса', 'Ancient, poisonous and patient. Some stand for a thousand years.', 'OVAL', 6, 3, 3, 0x2E4A2E,
+         (0x5A3A2A, 0xA06848), (0xC49064, 0xEEC090), (0xCC9A6C, 0xF2CA9A), (0x1A3A22, 0x3C6A44), ('extrabees:juniper', 'extrabees:holly', 0.05), humidity='damp'),
 ]
 
 KINDS = ['log', 'stripped_log', 'wood', 'stripped_wood', 'planks', 'stairs', 'slab', 'fence', 'fence_gate',
@@ -189,6 +226,10 @@ def main():
         write(f'data/{NS}/recipe/tree_mutation/{tid}.json', {'type': 'forestry:tree_mutation', 'id': f'{NS}:tree_mutation/{tid}',
                                                               'chance': chance, 'first': a, 'second': b, 'result': f'{NS}:{tid}'})
 
+    fj = os.environ.get('FORESTRY_TAXA', '/tmp/claude-0/-home-user-Game-/7284976b-775c-50c7-a7d5-bd10b9750ab0/scratchpad/fj/data/forestry/taxon')
+    cup = json.load(open(os.path.join(fj, 'cupressaceae.json')))['parent'] if os.path.isdir(fj) else 'cupressales'
+    for name, parent in EXTRA_TAXA.items():
+        write(f'data/{NS}/taxon/{name}.json', {'parent': cup if parent == '%CUPRESSALES%' else parent, 'name': name})
     for g, parent in GENERA.items():
         write(f'data/{NS}/taxon/{g}.json', {'parent': parent, 'name': g, 'rank': 'genus'})
 

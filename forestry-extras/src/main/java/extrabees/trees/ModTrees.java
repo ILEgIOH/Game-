@@ -45,6 +45,10 @@ public final class ModTrees {
 		});
 	}
 
+	public static List<String> ids() {
+		return WOODS.stream().map(w -> w.def.id()).toList();
+	}
+
 	public static List<net.minecraft.world.item.Item> allItems() {
 		return ITEMS.getEntries().stream().<net.minecraft.world.item.Item>map(h -> h.get()).toList();
 	}

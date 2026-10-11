@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "extrabees:holly_planks"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "extrabees:holly_button"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/juniper_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/juniper_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/juniper_slab_top"
+    }
+  }
+}

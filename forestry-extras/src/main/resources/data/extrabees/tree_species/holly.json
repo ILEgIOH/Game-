@@ -1,0 +1,21 @@
+{
+  "dominant": true,
+  "escritoire_color": 1989170,
+  "genome": {
+    "forestry:height": {
+      "value": 1.0
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "ilex",
+  "rarity": 0.003,
+  "species": "aquifolium",
+  "temperature": "cold"
+}

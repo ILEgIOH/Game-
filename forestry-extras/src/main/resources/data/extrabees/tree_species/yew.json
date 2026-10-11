@@ -1,0 +1,21 @@
+{
+  "dominant": true,
+  "escritoire_color": 3033646,
+  "genome": {
+    "forestry:height": {
+      "value": 1.0
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "taxus",
+  "rarity": 0.003,
+  "species": "baccata",
+  "humidity": "damp"
+}

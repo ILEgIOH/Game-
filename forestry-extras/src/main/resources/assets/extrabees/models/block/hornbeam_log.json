@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "extrabees:block/hornbeam_log_top",
+    "side": "extrabees:block/hornbeam_log"
+  }
+}
