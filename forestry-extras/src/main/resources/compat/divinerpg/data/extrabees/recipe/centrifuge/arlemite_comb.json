@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/arlemite_comb",
   "input": {
     "item": "extrabees:arlemite_comb"
   },

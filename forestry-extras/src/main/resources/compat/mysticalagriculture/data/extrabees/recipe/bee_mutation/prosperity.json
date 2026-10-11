@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/prosperity",
   "chance": 0.07,
   "first": "extrabees:inferium",
   "second": "extrabees:emerald",

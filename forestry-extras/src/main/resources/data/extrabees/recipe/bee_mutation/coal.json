@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/coal",
   "chance": 0.15,
   "first": "forestry:common",
   "second": "forestry:industrious",

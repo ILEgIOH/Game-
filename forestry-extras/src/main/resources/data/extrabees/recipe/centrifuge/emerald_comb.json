@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/emerald_comb",
   "input": {
     "item": "extrabees:emerald_comb"
   },

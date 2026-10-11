@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/torridite",
   "chance": 0.03,
   "first": "extrabees:realmite",
   "second": "extrabees:bloodgem",

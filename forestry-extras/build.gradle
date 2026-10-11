@@ -13,7 +13,11 @@ neoForge {
     version = neo_version
     runs {
         client { client() }
-        server { server() }
+        server {
+            server()
+            programArgument '--nogui'
+            gameDirectory = file('run/server')
+        }
     }
     mods {
         "${mod_id}" { sourceSet sourceSets.main }
@@ -26,3 +30,4 @@ processResources {
     inputs.properties props
     filesMatching('META-INF/neoforge.mods.toml') { expand props }
 }
+

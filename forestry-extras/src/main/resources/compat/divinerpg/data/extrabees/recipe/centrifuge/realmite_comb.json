@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/realmite_comb",
   "input": {
     "item": "extrabees:realmite_comb"
   },

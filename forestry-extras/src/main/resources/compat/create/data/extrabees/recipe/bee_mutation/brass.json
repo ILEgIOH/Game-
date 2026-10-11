@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/brass",
   "chance": 0.08,
   "first": "extrabees:zinc",
   "second": "extrabees:copper",

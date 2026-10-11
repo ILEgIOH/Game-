@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/bloodgem",
   "chance": 0.07,
   "first": "extrabees:redstone",
   "second": "forestry:demonic",

@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/glowstone_comb",
   "input": {
     "item": "extrabees:glowstone_comb"
   },

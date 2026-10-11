@@ -211,12 +211,13 @@ def main():
         write(f'{droot}/{NS}/bee_species/{bid}.json', sp)
 
         a, c, chance, conds = b['parents']
-        mut = {'type': 'forestry:bee_mutation', 'chance': chance, 'first': a, 'second': c, 'result': f'{NS}:{bid}'}
+        mut = {'type': 'forestry:bee_mutation', 'id': f'{NS}:bee_mutation/{bid}', 'chance': chance, 'first': a, 'second': c, 'result': f'{NS}:{bid}'}
         if conds: mut['conditions'] = conds
         write(f'{droot}/{NS}/recipe/bee_mutation/{bid}.json', mut)
 
         write(f'{droot}/{NS}/recipe/centrifuge/{comb}.json', {
             'type': 'forestry:centrifuge',
+            'id': f'{NS}:centrifuge/{comb}',
             'input': {'item': f'{NS}:{comb}'},
             'products': [{'chance': 1.0, 'item': 'forestry:beeswax'}, {'chance': 0.4, 'item': b['item']}],
             'time': 20,

@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/iron_comb",
   "input": {
     "item": "extrabees:iron_comb"
   },

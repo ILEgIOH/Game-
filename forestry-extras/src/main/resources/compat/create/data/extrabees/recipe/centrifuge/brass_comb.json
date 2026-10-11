@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/brass_comb",
   "input": {
     "item": "extrabees:brass_comb"
   },

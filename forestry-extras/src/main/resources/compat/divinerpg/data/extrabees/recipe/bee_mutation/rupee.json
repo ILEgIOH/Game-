@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/rupee",
   "chance": 0.06,
   "first": "extrabees:emerald",
   "second": "forestry:noble",

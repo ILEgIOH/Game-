@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/ambrosium",
   "chance": 0.1,
   "first": "forestry:cultivated",
   "second": "extrabees:gold",

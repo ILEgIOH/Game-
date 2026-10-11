@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/emerald",
   "chance": 0.04,
   "first": "extrabees:diamond",
   "second": "forestry:tropical",

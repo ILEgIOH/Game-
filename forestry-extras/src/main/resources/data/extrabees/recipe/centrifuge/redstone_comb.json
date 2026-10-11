@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/redstone_comb",
   "input": {
     "item": "extrabees:redstone_comb"
   },

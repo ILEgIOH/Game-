@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/prosperity_comb",
   "input": {
     "item": "extrabees:prosperity_comb"
   },

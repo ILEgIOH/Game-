@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/ambrosium_comb",
   "input": {
     "item": "extrabees:ambrosium_comb"
   },

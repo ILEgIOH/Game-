@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/zinc",
   "chance": 0.1,
   "first": "extrabees:copper",
   "second": "forestry:rural",

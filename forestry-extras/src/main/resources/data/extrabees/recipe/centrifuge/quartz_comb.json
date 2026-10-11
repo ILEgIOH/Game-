@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/quartz_comb",
   "input": {
     "item": "extrabees:quartz_comb"
   },

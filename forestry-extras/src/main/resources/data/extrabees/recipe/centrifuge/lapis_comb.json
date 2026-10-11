@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/lapis_comb",
   "input": {
     "item": "extrabees:lapis_comb"
   },

@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/torridite_comb",
   "input": {
     "item": "extrabees:torridite_comb"
   },

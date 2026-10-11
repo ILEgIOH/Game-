@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/inferium_comb",
   "input": {
     "item": "extrabees:inferium_comb"
   },

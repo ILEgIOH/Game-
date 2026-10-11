@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/amethyst",
   "chance": 0.07,
   "first": "extrabees:lapis",
   "second": "forestry:glacial",

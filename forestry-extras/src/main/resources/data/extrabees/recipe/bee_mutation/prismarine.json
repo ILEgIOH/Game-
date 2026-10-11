@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/prismarine",
   "chance": 0.08,
   "first": "forestry:aquatic",
   "second": "forestry:imperial",

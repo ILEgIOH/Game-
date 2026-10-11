@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/netherite_comb",
   "input": {
     "item": "extrabees:netherite_comb"
   },

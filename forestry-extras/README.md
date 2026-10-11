@@ -27,3 +27,8 @@ Loaded only when the other mod is present (built-in datapacks in `compat/`, see 
 
 Item ids are checked against the real mod jars. Not done yet: Twilight Forest, AE2, Thermal, Draconic Evolution.
 Bees themselves are listed in the Extra Bees creative tab (via reflection, see `ForestryBridge.java`) and in Forestry's own Apiculture tab.
+
+## Testing without the game
+`gradle runServer` starts a headless NeoForge server. Put Forestry CE alpha8, Patchouli (and any compat mods) into
+`run/server/mods/` first. The server logs `Extra Bees: N bee species loaded in Forestry` once everything is parsed.
+This catches datapack/recipe/registry errors; it cannot check visuals.

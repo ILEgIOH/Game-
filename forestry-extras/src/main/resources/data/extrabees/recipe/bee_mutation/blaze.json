@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/blaze",
   "chance": 0.08,
   "first": "forestry:demonic",
   "second": "forestry:valiant",

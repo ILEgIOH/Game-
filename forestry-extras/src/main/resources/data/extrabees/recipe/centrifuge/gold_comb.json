@@ -1,5 +1,6 @@
 {
   "type": "forestry:centrifuge",
+  "id": "extrabees:centrifuge/gold_comb",
   "input": {
     "item": "extrabees:gold_comb"
   },

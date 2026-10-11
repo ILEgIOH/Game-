@@ -1,5 +1,6 @@
 {
   "type": "forestry:bee_mutation",
+  "id": "extrabees:bee_mutation/quartz",
   "chance": 0.08,
   "first": "extrabees:coal",
   "second": "forestry:demonic",
