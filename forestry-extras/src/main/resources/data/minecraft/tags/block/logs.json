@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:ash_log",
+    "extrabees:ash_wood",
+    "extrabees:aspen_log",
+    "extrabees:aspen_wood",
+    "extrabees:cedar_log",
+    "extrabees:cedar_wood",
+    "extrabees:stripped_ash_log",
+    "extrabees:stripped_ash_wood",
+    "extrabees:stripped_aspen_log",
+    "extrabees:stripped_aspen_wood",
+    "extrabees:stripped_cedar_log",
+    "extrabees:stripped_cedar_wood"
+  ]
+}

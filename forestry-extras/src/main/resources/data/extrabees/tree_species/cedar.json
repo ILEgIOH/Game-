@@ -1,0 +1,21 @@
+{
+  "dominant": true,
+  "escritoire_color": 10115646,
+  "genome": {
+    "forestry:height": {
+      "value": 1.25
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "cedrus",
+  "rarity": 0.002,
+  "species": "libani",
+  "temperature": "cold"
+}

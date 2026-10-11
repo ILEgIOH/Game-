@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import extrabees.trees.ModTrees;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -29,6 +30,15 @@ public final class ModItems {
 		.displayItems((params, output) -> {
 			ForestryBridge.addBees(output);
 			COMBS.forEach(comb -> output.accept(comb.get()));
+		})
+		.build());
+
+	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TREES_TAB = TABS.register("trees", () -> CreativeModeTab.builder()
+		.title(Component.translatable("itemGroup." + ExtraBees.MOD_ID + ".trees"))
+		.icon(() -> new ItemStack(ModTrees.allItems().get(0)))
+		.displayItems((params, output) -> {
+			ForestryBridge.addTrees(output);
+			ModTrees.allItems().forEach(output::accept);
 		})
 		.build());
 

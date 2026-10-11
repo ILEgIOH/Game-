@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:aspen_log",
+    "extrabees:aspen_wood",
+    "extrabees:stripped_aspen_log",
+    "extrabees:stripped_aspen_wood"
+  ]
+}

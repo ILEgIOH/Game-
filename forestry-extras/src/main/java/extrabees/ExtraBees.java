@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import java.util.List;
 
+import extrabees.trees.ModTrees;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
@@ -16,9 +17,12 @@ public class ExtraBees {
 	public ExtraBees(IEventBus modBus) {
 		ModItems.ITEMS.register(modBus);
 		ModItems.TABS.register(modBus);
+		ModTrees.register(modBus);
 		NeoForge.EVENT_BUS.addListener((ServerStartedEvent event) -> {
 			List<String> ids = ForestryBridge.listOwnSpecies();
 			LOGGER.info("Extra Bees: {} bee species loaded in Forestry: {}", ids.size(), ids);
+			List<String> trees = ForestryBridge.listOwnSpecies("tree_species");
+			LOGGER.info("Extra Trees: {} tree species loaded in Forestry: {}", trees.size(), trees);
 		});
 	}
 }

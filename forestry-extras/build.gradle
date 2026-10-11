@@ -9,13 +9,23 @@ base.archivesName = "${mod_id}-${minecraft_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
+// Forestry's public API (LGPL, see forestry-api/forestry/api/LICENSE.txt) from the alpha8 tag.
+// Compile-time only: the real classes come from the installed Forestry mod.
+sourceSets {
+    forestryApi {
+        java.srcDir 'forestry-api'
+    }
+}
+
 neoForge {
     version = neo_version
+    addModdingDependenciesTo(sourceSets.forestryApi)
     runs {
         client { client() }
         server {
             server()
             programArgument '--nogui'
+            systemProperty 'extrabees.selftest', providers.gradleProperty('selftest').getOrElse('false')
             gameDirectory = file('run/server')
         }
     }
@@ -31,3 +41,7 @@ processResources {
     filesMatching('META-INF/neoforge.mods.toml') { expand props }
 }
 
+
+dependencies {
+    compileOnly sourceSets.forestryApi.output
+}

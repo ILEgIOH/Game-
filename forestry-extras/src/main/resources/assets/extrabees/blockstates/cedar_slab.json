@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/cedar_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/cedar_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/cedar_slab_top"
+    }
+  }
+}

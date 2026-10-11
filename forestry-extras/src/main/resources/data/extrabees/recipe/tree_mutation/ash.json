@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/ash",
+  "chance": 0.08,
+  "first": "forestry:oak",
+  "second": "forestry:elm",
+  "result": "extrabees:ash"
+}

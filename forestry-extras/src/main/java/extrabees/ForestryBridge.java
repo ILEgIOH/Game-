@@ -11,13 +11,21 @@ import net.minecraft.world.item.ItemStack;
 // reflection on purpose: a changed Forestry API only empties the tab, it must never crash the game
 final class ForestryBridge {
 	static void addBees(CreativeModeTab.Output output) {
+		addSpecies(output, "bee_species");
+	}
+
+	static void addTrees(CreativeModeTab.Output output) {
+		addSpecies(output, "tree_species");
+	}
+
+	private static void addSpecies(CreativeModeTab.Output output, String speciesType) {
 		try {
 			Class<?> apiClass = Class.forName("forestry.api.IForestryApi");
 			Object api = apiClass.getField("INSTANCE").get(null);
 			Object genetics = apiClass.getMethod("getGeneticManager").invoke(api);
 			Class<?> geneticsClass = Class.forName("forestry.api.core.genetics.IGeneticManager");
 			Object beeType = geneticsClass.getMethod("getSpeciesType", ResourceLocation.class)
-				.invoke(genetics, ResourceLocation.fromNamespaceAndPath("forestry", "bee_species"));
+				.invoke(genetics, ResourceLocation.fromNamespaceAndPath("forestry", speciesType));
 
 			Class<?> typeClass = Class.forName("forestry.api.core.genetics.ISpeciesType");
 			Class<?> speciesClass = Class.forName("forestry.api.core.genetics.ISpecies");
@@ -35,18 +43,22 @@ final class ForestryBridge {
 				}
 			}
 		} catch (Throwable t) {
-			ExtraBees.LOGGER.warn("Could not list Extra Bees species in the creative tab", t);
+			ExtraBees.LOGGER.warn("Could not list Extra Bees {} in the creative tab", speciesType, t);
 		}
 	}
 
 	static List<String> listOwnSpecies() {
+		return listOwnSpecies("bee_species");
+	}
+
+	static List<String> listOwnSpecies(String speciesType) {
 		List<String> ids = new java.util.ArrayList<>();
 		try {
 			Class<?> apiClass = Class.forName("forestry.api.IForestryApi");
 			Object api = apiClass.getField("INSTANCE").get(null);
 			Object genetics = apiClass.getMethod("getGeneticManager").invoke(api);
 			Object beeType = Class.forName("forestry.api.core.genetics.IGeneticManager").getMethod("getSpeciesType", ResourceLocation.class)
-				.invoke(genetics, ResourceLocation.fromNamespaceAndPath("forestry", "bee_species"));
+				.invoke(genetics, ResourceLocation.fromNamespaceAndPath("forestry", speciesType));
 			List<?> species = (List<?>) Class.forName("forestry.api.core.genetics.ISpeciesType").getMethod("getAllSpecies").invoke(beeType);
 			Method id = Class.forName("forestry.api.core.genetics.ISpecies").getMethod("id");
 			for (Object bee : species) {

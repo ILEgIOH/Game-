@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:ash_pressure_plate",
+    "extrabees:aspen_pressure_plate",
+    "extrabees:cedar_pressure_plate"
+  ]
+}

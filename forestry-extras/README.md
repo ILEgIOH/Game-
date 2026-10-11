@@ -32,3 +32,15 @@ Bees themselves are listed in the Extra Bees creative tab (via reflection, see `
 `gradle runServer` starts a headless NeoForge server. Put Forestry CE alpha8, Patchouli (and any compat mods) into
 `run/server/mods/` first. The server logs `Extra Bees: N bee species loaded in Forestry` once everything is parsed.
 This catches datapack/recipe/registry errors; it cannot check visuals.
+
+## Extra Trees (stage 1)
+Written only against Forestry's public API (`forestry-api/`, MIT licensed, copied from the alpha8 tag), so it does not touch Forestry internals.
+- Trees: **Ash**, **Cedar**, **Aspen** - each with log, stripped log, wood, stripped wood, planks, stairs, slab, fence, fence gate, door, trapdoor, button, pressure plate, leaves.
+- Generator: `python3 tools/gen_data.py && python3 tools/gen_trees.py` (run in this order, the second merges lang files).
+  Textures are luminance recolours of the vanilla oak textures; for private/hobby use.
+- Code: `src/main/java/extrabees/trees/` (`ExtraTreesPlugin` is found by Forestry through `META-INF/services`).
+- `/extrabees tree <ash|cedar|aspen>` (op) grows a tree at the command position.
+- Not done yet: signs, boats, fruits, fireproof wood, own leaf block entity (pollination/leaf genetics use Forestry's generic leaves).
+- To add a tree: add an entry to `TREES` in `tools/gen_trees.py`, regenerate, rebuild. The genus must exist in Forestry's taxonomy or be added to `GENERA`.
+
+Headless self-test: `gradle runServer -Pselftest=true` grows every tree after startup, logs `SELFTEST ...` lines and stops.
