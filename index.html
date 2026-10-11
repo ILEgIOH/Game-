@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BeatForge</title>
+<style>
+  :root{
+    --bg:#0a0b14; --panel:#141629; --panel2:#1c1f3a; --text:#e8eaff; --muted:#8b90b8;
+    --accent:#6c7bff; --l0:#ff4d8d; --l1:#ffb84d; --l2:#4dffb8; --l3:#4dc3ff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
+  canvas{position:fixed;inset:0;width:100%;height:100%;display:block}
+  .screen{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:16px;z-index:5;
+    background:radial-gradient(ellipse at 50% 30%,rgba(108,123,255,.18),rgba(10,11,20,.92) 70%)}
+  .screen.show{display:flex}
+  .card{background:var(--panel);border:1px solid #2a2e55;border-radius:18px;padding:28px;width:min(560px,100%);
+    box-shadow:0 20px 60px rgba(0,0,0,.5);max-height:100%;overflow:auto}
+  h1{margin:0 0 4px;font-size:34px;letter-spacing:.5px}
+  h1 span{color:var(--accent)}
+  p.sub{margin:0 0 20px;color:var(--muted)}
+  .drop{border:2px dashed #3a3f78;border-radius:14px;padding:34px 16px;text-align:center;cursor:pointer;
+    color:var(--muted);transition:.15s;background:var(--panel2)}
+  .drop:hover,.drop.over{border-color:var(--accent);color:var(--text);background:#232750}
+  .drop b{display:block;font-size:18px;color:var(--text);margin-bottom:6px}
+  button{font:inherit;color:var(--text);background:var(--panel2);border:1px solid #333866;border-radius:10px;
+    padding:10px 16px;cursor:pointer;transition:.12s}
+  button:hover{border-color:var(--accent);background:#262b55}
+  button.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;font-size:17px;padding:12px 22px}
+  button.primary:hover{filter:brightness(1.1)}
+  button.sel{border-color:var(--accent);background:#2b3170}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}
+  .row label{color:var(--muted);min-width:110px;font-size:14px}
+  .row input[type=range]{flex:1;min-width:120px;accent-color:var(--accent)}
+  .row .val{width:56px;text-align:right;font-variant-numeric:tabular-nums}
+  .bar{height:10px;border-radius:6px;background:var(--panel2);overflow:hidden;margin:18px 0 8px}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--l0),var(--l3));transition:width .1s}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+  .stat{background:var(--panel2);border-radius:12px;padding:10px;text-align:center}
+  .stat b{display:block;font-size:22px}
+  .stat small{color:var(--muted)}
+  .grade{font-size:84px;font-weight:800;text-align:center;line-height:1;margin:6px 0}
+  .keys{color:var(--muted);font-size:13px;margin-top:14px;text-align:center}
+  kbd{background:var(--panel2);border:1px solid #333866;border-bottom-width:3px;border-radius:6px;padding:1px 7px;color:var(--text)}
+  .center{text-align:center}
+  .err{color:#ff7d9a;margin-top:10px}
+  #fileInput{display:none}
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+
+<!-- Главное меню -->
+<div class="screen show" id="sMenu">
+  <div class="card">
+    <h1>Beat<span>Forge</span></h1>
+    <p class="sub">Загрузи любой трек — игра сама найдёт биты и построит уровень.</p>
+    <div class="drop" id="drop">
+      <b>Перетащи mp3 / wav / ogg сюда</b>
+      или нажми, чтобы выбрать файл
+    </div>
+    <input type="file" id="fileInput" accept="audio/*">
+    <div class="err" id="menuErr"></div>
+    <div class="keys">Клавиши: <kbd>D</kbd> <kbd>F</kbd> <kbd>J</kbd> <kbd>K</kbd> · пауза <kbd>Esc</kbd> · рестарт <kbd>`</kbd></div>
+  </div>
+</div>
+
+<!-- Анализ -->
+<div class="screen" id="sLoad">
+  <div class="card center">
+    <h1 style="font-size:26px" id="loadTitle">Анализ трека…</h1>
+    <div class="bar"><i id="loadBar"></i></div>
+    <p class="sub" id="loadText">Декодирование аудио</p>
+  </div>
+</div>
+
+<!-- Подготовка -->
+<div class="screen" id="sReady">
+  <div class="card">
+    <h1 style="font-size:26px" id="songName">Трек</h1>
+    <p class="sub" id="songMeta"></p>
+    <div class="stats">
+      <div class="stat"><b id="stBpm">–</b><small>BPM</small></div>
+      <div class="stat"><b id="stNotes">–</b><small>нот</small></div>
+      <div class="stat"><b id="stBest">–</b><small>рекорд</small></div>
+    </div>
+    <div class="row">
+      <label>Сложность</label>
+      <button data-diff="easy">Лёгкая</button>
+      <button data-diff="normal">Средняя</button>
+      <button data-diff="hard">Сложная</button>
+    </div>
+    <div class="row"><label>Скорость нот</label><input type="range" id="optSpeed" min="1" max="12" step="1"><span class="val" id="vSpeed"></span></div>
+    <div class="row"><label>Сдвиг, мс</label><input type="range" id="optOffset" min="-150" max="150" step="5"><span class="val" id="vOffset"></span></div>
+    <div class="row"><label>Громкость</label><input type="range" id="optVol" min="0" max="100" step="5"><span class="val" id="vVol"></span></div>
+    <div class="row"><label>Звук попаданий</label><input type="checkbox" id="optTick"></div>
+    <div class="row" style="justify-content:space-between">
+      <button id="btnBack">← Другой трек</button>
+      <button class="primary" id="btnPlay">▶ Играть</button>
+    </div>
+    <div class="keys">Если ноты ощущаются сдвинутыми — подстрой «Сдвиг».</div>
+  </div>
+</div>
+
+<!-- Пауза -->
+<div class="screen" id="sPause">
+  <div class="card center">
+    <h1 style="font-size:28px">Пауза</h1>
+    <div class="row" style="justify-content:center">
+      <button class="primary" id="btnResume">Продолжить</button>
+      <button id="btnRetry1">Заново</button>
+      <button id="btnQuit">В меню</button>
+    </div>
+  </div>
+</div>
+
+<!-- Результаты -->
+<div class="screen" id="sResult">
+  <div class="card">
+    <div class="grade" id="rGrade">S</div>
+    <p class="sub center" id="rTitle"></p>
+    <div class="stats">
+      <div class="stat"><b id="rScore">0</b><small>очки</small></div>
+      <div class="stat"><b id="rAcc">0%</b><small>точность</small></div>
+      <div class="stat"><b id="rCombo">0</b><small>макс. комбо</small></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="rP" style="color:var(--l3)">0</b><small>Perfect</small></div>
+      <div class="stat"><b id="rGr" style="color:var(--l2)">0</b><small>Great</small></div>
+      <div class="stat"><b id="rGd" style="color:var(--l1)">0</b><small>Good</small></div>
+    </div>
+    <div class="stats" style="grid-template-columns:1fr">
+      <div class="stat"><b id="rM" style="color:var(--l0)">0</b><small>Miss</small></div>
+    </div>
+    <div class="row" style="justify-content:center">
+      <button class="primary" id="btnRetry2">Ещё раз</button>
+      <button id="btnMenu2">Настройки трека</button>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+/* =====================================================================
+   BeatForge — ритм-игра с автогенерацией уровня из загруженного трека
+   ===================================================================== */
+
+const LANES = 4;
+const KEYCODES = { KeyD: 0, KeyF: 1, KeyJ: 2, KeyK: 3 };
+const KEYLABELS = ['D', 'F', 'J', 'K'];
+const LANE_COLORS = ['#ff4d8d', '#ffb84d', '#4dffb8', '#4dc3ff'];
+const WIN = { perfect: 0.040, great: 0.080, good: 0.125, miss: 0.160 }; // секунды
+const LEAD_IN = 2.0;
+
+const $ = id => document.getElementById(id);
+const cv = $('cv'), g = cv.getContext('2d');
+
+/* ---------------------------- Настройки ---------------------------- */
+const settings = Object.assign({ speed: 7, offset: 0, volume: 70, tick: false, diff: 'normal' }, loadJSON('bf_settings', {}));
+function loadJSON(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } }
+function saveJSON(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
+
+/* ---------------------------- Экраны ---------------------------- */
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('show'));
+  if (id) $(id).classList.add('show');
+}
+
+/* ---------------------------- Аудио ---------------------------- */
+let actx = null;
+function ctx() {
+  if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+  return actx;
+}
+
+/* ---------------------------- FFT ---------------------------- */
+const FFT_N = 1024, HOP = 512;
+const fftRev = new Uint16Array(FFT_N), fftCos = new Float32Array(FFT_N / 2), fftSin = new Float32Array(FFT_N / 2);
+(function initFFT() {
+  const bits = Math.log2(FFT_N);
+  for (let i = 0; i < FFT_N; i++) {
+    let r = 0; for (let b = 0; b < bits; b++) if (i & (1 << b)) r |= 1 << (bits - 1 - b);
+    fftRev[i] = r;
+  }
+  for (let i = 0; i < FFT_N / 2; i++) { fftCos[i] = Math.cos(2 * Math.PI * i / FFT_N); fftSin[i] = -Math.sin(2 * Math.PI * i / FFT_N); }
+})();
+const hann = new Float32Array(FFT_N);
+for (let i = 0; i < FFT_N; i++) hann[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / (FFT_N - 1));
+const fre = new Float32Array(FFT_N), fim = new Float32Array(FFT_N);
+function fft() {
+  for (let i = 0; i < FFT_N; i++) { const j = fftRev[i]; if (j > i) { let t = fre[i]; fre[i] = fre[j]; fre[j] = t; t = fim[i]; fim[i] = fim[j]; fim[j] = t; } }
+  for (let size = 2; size <= FFT_N; size <<= 1) {
+    const half = size >> 1, step = FFT_N / size;
+    for (let i = 0; i < FFT_N; i += size) {
+      for (let j = 0, k = 0; j < half; j++, k += step) {
+        const a = i + j, b = a + half;
+        const tr = fre[b] * fftCos[k] - fim[b] * fftSin[k];
+        const ti = fre[b] * fftSin[k] + fim[b] * fftCos[k];
+        fre[b] = fre[a] - tr; fim[b] = fim[a] - ti;
+        fre[a] += tr; fim[a] += ti;
+      }
+    }
+  }
+}
+
+/* ---------------------------- Анализ трека ---------------------------- */
+// Возвращает признаки: огибающая онсетов, центроид новой энергии, RMS по кадрам.
+async function analyze(buffer, onProgress) {
+  const sr = buffer.sampleRate, len = buffer.length, nch = buffer.numberOfChannels;
+  const mono = new Float32Array(len);
+  for (let c = 0; c < nch; c++) {
+    const d = buffer.getChannelData(c);
+    for (let i = 0; i < len; i++) mono[i] += d[i] / nch;
+  }
+  const nFrames = Math.max(0, Math.floor((len - FFT_N) / HOP));
+  const nb = FFT_N / 2;
+  const binHz = sr / FFT_N;
+  const bLowEnd = Math.max(2, Math.round(220 / binHz));
+  const bMidEnd = Math.round(2200 / binHz);
+  const bHighEnd = Math.min(nb, Math.round(9000 / binHz));
+
+  const fluxLow = new Float32Array(nFrames), fluxMid = new Float32Array(nFrames), fluxHigh = new Float32Array(nFrames);
+  const centroid = new Float32Array(nFrames), rms = new Float32Array(nFrames);
+  let prev = new Float32Array(nb), cur = new Float32Array(nb);
+  const logMin = Math.log2(90), logMax = Math.log2(7000);
+
+  for (let i = 0; i < nFrames; i++) {
+    const off = i * HOP;
+    let e = 0;
+    for (let n = 0; n < FFT_N; n++) { const s = mono[off + n]; e += s * s; fre[n] = s * hann[n]; fim[n] = 0; }
+    rms[i] = Math.sqrt(e / FFT_N);
+    fft();
+    let fl = 0, fm = 0, fh = 0, wsum = 0, wk = 0;
+    for (let k = 1; k < nb; k++) {
+      const mag = Math.log1p(Math.hypot(fre[k], fim[k]) * 0.2);
+      cur[k] = mag;
+      const d = mag - prev[k];
+      if (d > 0 && k < bHighEnd) {
+        if (k < bLowEnd) fl += d; else if (k < bMidEnd) fm += d; else fh += d;
+        wsum += d; wk += d * Math.log2(Math.max(k * binHz, 1));
+      }
+    }
+    fluxLow[i] = fl / bLowEnd;
+    fluxMid[i] = fm / (bMidEnd - bLowEnd);
+    fluxHigh[i] = fh / Math.max(1, bHighEnd - bMidEnd);
+    centroid[i] = wsum > 1e-6 ? Math.min(1, Math.max(0, (wk / wsum - logMin) / (logMax - logMin))) : 0.5;
+    const t = prev; prev = cur; cur = t;
+    if (i % 300 === 0) { onProgress(i / nFrames); await new Promise(r => setTimeout(r, 0)); }
+  }
+
+  // Нормируем полосы по среднему и складываем с весами
+  const norm = a => { let s = 0; for (let i = 0; i < a.length; i++) s += a[i]; const m = s / Math.max(1, a.length) + 1e-9; for (let i = 0; i < a.length; i++) a[i] /= m; };
+  norm(fluxLow); norm(fluxMid); norm(fluxHigh);
+  const env = new Float32Array(nFrames);
+  for (let i = 0; i < nFrames; i++) env[i] = 1.0 * fluxLow[i] + 0.9 * fluxMid[i] + 0.6 * fluxHigh[i];
+  // лёгкое сглаживание
+  const sm = new Float32Array(nFrames);
+  for (let i = 0; i < nFrames; i++) sm[i] = 0.25 * (env[i - 1] ?? env[i]) + 0.5 * env[i] + 0.25 * (env[i + 1] ?? env[i]);
+
+  const fps = sr / HOP;
+  return { env: sm, centroid, rms, nFrames, fps, sr, duration: buffer.duration, bpm: estimateBPM(sm, fps) };
+}
+
+function estimateBPM(env, fps) {
+  const n = env.length; if (n < fps * 8) return 0;
+  let mean = 0; for (let i = 0; i < n; i++) mean += env[i]; mean /= n;
+  const x = new Float32Array(n); for (let i = 0; i < n; i++) x[i] = Math.max(0, env[i] - mean);
+  const minLag = Math.floor(fps * 60 / 200), maxLag = Math.ceil(fps * 60 / 60);
+  let best = 0, bestScore = -1;
+  for (let lag = minLag; lag <= maxLag; lag++) {
+    let s = 0; for (let i = lag; i < n; i++) s += x[i] * x[i - lag];
+    s /= (n - lag);
+    const bpm = 60 * fps / lag;
+    // мягкое предпочтение темпам ~120
+    const prior = Math.exp(-0.5 * Math.pow(Math.log2(bpm / 120) / 0.9, 2));
+    const sc = s * prior;
+    if (sc > bestScore) { bestScore = sc; best = bpm; }
+  }
+  // октавная коррекция: если вдвое быстрее темп тоже хорошо выражен — берём его
+  const sAt = b => { const lag = Math.round(60 * fps / b); if (lag < 2 || lag >= n) return 0; let s = 0; for (let i = lag; i < n; i++) s += x[i] * x[i - lag]; return s / (n - lag); };
+  while (best < 90 && sAt(best * 2) > 0.35 * sAt(best)) best *= 2;
+  return Math.round(best);
+}
+
+/* ---------------------------- Генерация уровня ---------------------------- */
+const DIFFS = {
+  easy:   { minGap: 0.30, k: 1.55, delta: 0.65, holds: true,  chords: 0,    maxHold: 2.0 },
+  normal: { minGap: 0.17, k: 1.30, delta: 0.45, holds: true,  chords: 0,    maxHold: 2.5 },
+  hard:   { minGap: 0.105, k: 1.12, delta: 0.30, holds: true, chords: 0.22, maxHold: 3.0 },
+};
+
+function buildChart(f, diffKey) {
+  const D = DIFFS[diffKey], { env, centroid, rms, nFrames, fps } = f;
+  // скользящее среднее ±0.5с
+  const W = Math.round(fps * 0.5);
+  const pre = new Float64Array(nFrames + 1);
+  for (let i = 0; i < nFrames; i++) pre[i + 1] = pre[i] + env[i];
+  let gm = pre[nFrames] / Math.max(1, nFrames), gv = 0;
+  for (let i = 0; i < nFrames; i++) gv += (env[i] - gm) ** 2;
+  const gs = Math.sqrt(gv / Math.max(1, nFrames));
+
+  const cands = [];
+  for (let i = 3; i < nFrames - 3; i++) {
+    const v = env[i];
+    if (v < env[i - 1] || v < env[i + 1] || v < env[i - 2] || v < env[i + 2] || v <= env[i - 3] * 0.999) continue;
+    const a = Math.max(0, i - W), b = Math.min(nFrames, i + W + 1);
+    const lm = (pre[b] - pre[a]) / (b - a);
+    if (v > lm * D.k + D.delta * gs) cands.push({ i, s: v / (lm + 1e-6) });
+  }
+  // отбор по силе с минимальным интервалом
+  cands.sort((a, b) => b.s - a.s);
+  const gap = Math.round(D.minGap * fps), taken = new Uint8Array(nFrames);
+  const picked = [];
+  for (const c of cands) {
+    let ok = true;
+    for (let j = Math.max(0, c.i - gap); j <= Math.min(nFrames - 1, c.i + gap); j++) if (taken[j]) { ok = false; break; }
+    if (ok) { taken[c.i] = 1; picked.push(c); }
+  }
+  picked.sort((a, b) => a.i - b.i);
+
+  // раскладка по дорожкам
+  let seed = (nFrames * 2654435761) >>> 0;
+  const rnd = () => { seed = (seed + 0x6D2B79F5) >>> 0; let t = seed; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  const notes = [];
+  const busy = new Array(LANES).fill(-1);       // до какого момента дорожка занята холдом
+  let prevLane = -1, prevT = -9, run = 0;
+  const frameT = i => (i * HOP + FFT_N / 2) / f.sr;
+
+  picked.forEach((c, idx) => {
+    const t = frameT(c.i);
+    // позиция по высоте звука → дорожка
+    let c0 = 0, c1 = 0; for (let j = c.i; j < Math.min(nFrames, c.i + 3); j++) { c0 += centroid[j]; c1++; }
+    let lane = Math.min(LANES - 1, Math.floor((c0 / c1) * LANES * 0.999));
+    // «шум» против монотонности
+    if (rnd() < 0.2) lane = Math.max(0, Math.min(LANES - 1, lane + (rnd() < 0.5 ? -1 : 1)));
+    const free = l => busy[l] < t - 0.02;
+    if (lane === prevLane && (t - prevT < 0.32 || run >= 2)) {
+      const alts = [lane - 1, lane + 1, lane - 2, lane + 2].filter(l => l >= 0 && l < LANES);
+      alts.sort(() => rnd() - 0.5);
+      lane = alts.find(free) ?? lane;
+    }
+    if (!free(lane)) { const alt = [0, 1, 2, 3].filter(free); if (!alt.length) return; lane = alt[Math.floor(rnd() * alt.length)]; }
+    run = lane === prevLane ? run + 1 : 0; prevLane = lane; prevT = t;
+
+    // холд: тишина до следующей ноты + устойчивая громкость
+    let end = 0;
+    const nextT = idx + 1 < picked.length ? frameT(picked[idx + 1].i) : f.duration;
+    const room = Math.min(D.maxHold, nextT - t - 0.18);
+    if (D.holds && room >= 0.45) {
+      let r0 = 0; for (let j = c.i; j < Math.min(nFrames, c.i + 4); j++) r0 = Math.max(r0, rms[j]);
+      let j = c.i + 4;
+      while (j < nFrames && frameT(j) - t < room && rms[j] >= r0 * 0.5) j++;
+      const sus = frameT(j) - t;
+      if (sus >= 0.45) end = t + Math.min(sus, room);
+    }
+    const note = { t, end, lane, st: 0, strength: c.s };
+    notes.push(note);
+    if (end) busy[lane] = end;
+
+    // аккорды на сильных ударах (сложная)
+    if (!end && D.chords && c.s > 2.2 && rnd() < D.chords) {
+      const cand = [0, 1, 2, 3].filter(l => l !== lane && free(l));
+      if (cand.length) {
+        const l2 = cand[Math.floor(rnd() * cand.length)];
+        notes.push({ t, end: 0, lane: l2, st: 0, strength: c.s });
+      }
+    }
+  });
+  notes.sort((a, b) => a.t - b.t);
+  return notes;
+}
+
+/* ---------------------------- Состояние игры ---------------------------- */
+const S = {
+  buffer: null, feats: null, name: '', key: '', notes: [], lanes: [[], [], [], []], laneIdx: [0, 0, 0, 0],
+  src: null, gain: null, analyser: null, base: 0, running: false, paused: false, resuming: 0,
+  score: 0, combo: 0, maxCombo: 0, counts: { p: 0, g: 0, d: 0, m: 0 }, accSum: 0, judged: 0,
+  held: [null, null, null, null], pressed: [false, false, false, false], flash: [0, 0, 0, 0],
+  pops: [], judgeText: null, shake: 0, pulse: 0, finishing: false,
+};
+
+/* ---------------------------- Загрузка файла ---------------------------- */
+async function handleFile(file) {
+  $('menuErr').textContent = '';
+  try {
+    show('sLoad');
+    $('loadTitle').textContent = 'Анализ трека…';
+    $('loadText').textContent = 'Декодирование аудио';
+    $('loadBar').style.width = '3%';
+    const ac = ctx(); if (ac.state === 'suspended') await ac.resume();
+    const ab = await file.arrayBuffer();
+    const buffer = await ac.decodeAudioData(ab);
+    $('loadText').textContent = 'Поиск битов и онсетов';
+    const feats = await analyze(buffer, p => { $('loadBar').style.width = (5 + p * 95) + '%'; });
+    S.buffer = buffer; S.feats = feats;
+    S.name = file.name.replace(/\.[^.]+$/, '');
+    S.key = `${file.name}|${file.size}`;
+    setDiff(settings.diff);
+    show('sReady');
+  } catch (e) {
+    console.error(e);
+    show('sMenu');
+    $('menuErr').textContent = 'Не удалось прочитать файл. Попробуй mp3/wav/ogg другого формата.';
+  }
+}
+
+function bestKey() { return `bf_best|${S.key}|${settings.diff}`; }
+function setDiff(d) {
+  settings.diff = d; saveJSON('bf_settings', settings);
+  document.querySelectorAll('[data-diff]').forEach(b => b.classList.toggle('sel', b.dataset.diff === d));
+  S.notes = buildChart(S.feats, d);
+  $('songName').textContent = S.name;
+  const m = Math.floor(S.feats.duration / 60), s = Math.round(S.feats.duration % 60).toString().padStart(2, '0');
+  $('songMeta').textContent = `Длительность ${m}:${s}`;
+  $('stBpm').textContent = S.feats.bpm || '–';
+  $('stNotes').textContent = S.notes.length;
+  const best = loadJSON(bestKey(), null);
+  $('stBest').textContent = best ? best.acc.toFixed(1) + '%' : '–';
+}
+
+/* ---------------------------- Запуск уровня ---------------------------- */
+function startGame() {
+  stopAudio();
+  const ac = ctx();
+  S.notes = S.notes.map(n => ({ ...n, st: 0, hp: false }));
+  S.lanes = [[], [], [], []]; S.laneIdx = [0, 0, 0, 0];
+  S.notes.forEach(n => S.lanes[n.lane].push(n));
+  Object.assign(S, {
+    score: 0, combo: 0, maxCombo: 0, counts: { p: 0, g: 0, d: 0, m: 0 }, accSum: 0, judged: 0,
+    held: [null, null, null, null], pops: [], judgeText: null, finishing: false, paused: false, resuming: 0, shake: 0, pulse: 0,
+  });
+  S.gain = ac.createGain(); S.gain.gain.value = settings.volume / 100;
+  S.analyser = ac.createAnalyser(); S.analyser.fftSize = 256; S.analyser.smoothingTimeConstant = 0.75;
+  S.freqData = new Uint8Array(S.analyser.frequencyBinCount);
+  S.src = ac.createBufferSource(); S.src.buffer = S.buffer;
+  S.src.connect(S.analyser); S.analyser.connect(S.gain); S.gain.connect(ac.destination);
+  S.base = ac.currentTime + 0.15;
+  S.src.start(S.base + LEAD_IN);
+  S.running = true;
+  show(null);
+}
+
+function stopAudio() {
+  S.running = false;
+  if (S.src) { try { S.src.stop(); } catch (e) { /* уже остановлен */ } try { S.src.disconnect(); } catch (e) { } S.src = null; }
+  if (actx && actx.state === 'suspended') actx.resume();
+}
+
+/* Время песни (сек) с учётом сглаживания и задержек вывода */
+function songTimeAtPerf(perfMs) {
+  const ac = actx; let ct = ac.currentTime;
+  if (ac.getOutputTimestamp) {
+    const ts = ac.getOutputTimestamp();
+    if (ts && ts.performanceTime > 0 && Math.abs(perfMs - ts.performanceTime) < 120) ct = ts.contextTime + (perfMs - ts.performanceTime) / 1000;
+  }
+  return ct - (ac.outputLatency || 0) - S.base - LEAD_IN - settings.offset / 1000;
+}
+const songNow = () => songTimeAtPerf(performance.now());
+
+/* ---------------------------- Судейство ---------------------------- */
+function judge(dt) {
+  const a = Math.abs(dt);
+  if (a <= WIN.perfect) return 'p';
+  if (a <= WIN.great) return 'g';
+  if (a <= WIN.good) return 'd';
+  return 'm';
+}
+const JTEXT = { p: ['PERFECT', '#4dc3ff'], g: ['GREAT', '#4dffb8'], d: ['GOOD', '#ffb84d'], m: ['MISS', '#ff4d6d'] };
+const JACC = { p: 1, g: 0.85, d: 0.5, m: 0 };
+const JSCORE = { p: 300, g: 200, d: 100, m: 0 };
+
+function register(j, lane) {
+  S.counts[j]++; S.judged++; S.accSum += JACC[j];
+  if (j === 'm') { S.combo = 0; S.shake = 0.25; }
+  else {
+    S.combo++; if (S.combo > S.maxCombo) S.maxCombo = S.combo;
+    S.score += Math.round(JSCORE[j] * (1 + Math.min(S.combo, 100) / 50));
+    if (settings.tick) tick();
+  }
+  S.judgeText = { txt: JTEXT[j][0], col: JTEXT[j][1], age: 0 };
+  if (lane != null && j !== 'm') { S.pops.push({ lane, age: 0, col: LANE_COLORS[lane] }); S.pulse = 1; }
+}
+
+function tick() {
+  const ac = actx, o = ac.createOscillator(), gn = ac.createGain();
+  o.frequency.value = 1400; gn.gain.value = 0.05 * (settings.volume / 100) + 0.01;
+  gn.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + 0.05);
+  o.connect(gn); gn.connect(ac.destination); o.start(); o.stop(ac.currentTime + 0.05);
+}
+
+function press(lane, perfMs) {
+  S.pressed[lane] = true; S.flash[lane] = 1;
+  if (!S.running || S.paused || S.resuming) return;
+  const t = songTimeAtPerf(perfMs), q = S.lanes[lane];
+  let i = S.laneIdx[lane];
+  while (i < q.length && q[i].st !== 0) i++;
+  S.laneIdx[lane] = i;
+  const n = q[i];
+  if (!n) return;
+  const dt = t - n.t;
+  if (Math.abs(dt) > WIN.miss) return; // «холостой» тап — без штрафа
+  const j = judge(dt);
+  if (j === 'm') { n.st = 3; register('m', lane); return; }
+  register(j, lane);
+  if (n.end) { n.st = 1; S.held[lane] = n; } else n.st = 2;
+}
+
+function release(lane, perfMs) {
+  S.pressed[lane] = false;
+  const n = S.held[lane];
+  if (!n || !S.running) return;
+  const t = songTimeAtPerf(perfMs);
+  S.held[lane] = null;
+  if (t >= n.end - WIN.good) { n.st = 2; S.score += 100; S.pops.push({ lane, age: 0, col: LANE_COLORS[lane] }); }
+  else { n.st = 3; S.combo = 0; S.judgeText = { txt: 'BROKEN', col: '#ff4d6d', age: 0 }; }
+}
+
+function update(t) {
+  // пропущенные ноты
+  for (let l = 0; l < LANES; l++) {
+    const q = S.lanes[l];
+    for (let i = S.laneIdx[l]; i < q.length; i++) {
+      const n = q[i];
+      if (n.st !== 0) continue;
+      if (t - n.t > WIN.miss) { n.st = 3; register('m', null); } else break;
+    }
+    // авто-завершение удерживаемых нот
+    const h = S.held[l];
+    if (h && t >= h.end + 0.02 && S.pressed[l]) { h.st = 2; S.held[l] = null; S.score += 100; S.pops.push({ lane: l, age: 0, col: LANE_COLORS[l] }); }
+  }
+  // финал
+  if (!S.finishing && t > S.feats.duration + 0.4) finish();
+}
+
+function accuracy() { return S.judged ? 100 * S.accSum / S.judged : 100; }
+
+function finish() {
+  S.finishing = true;
+  // всё, что не сыграно, — промах
+  S.notes.forEach(n => { if (n.st === 0) { n.st = 3; S.counts.m++; S.judged++; } });
+  const acc = S.notes.length ? 100 * S.accSum / S.notes.length : 100;
+  const grade = acc >= 95 ? 'S' : acc >= 90 ? 'A' : acc >= 80 ? 'B' : acc >= 70 ? 'C' : 'D';
+  const gc = { S: '#ffd84d', A: '#4dffb8', B: '#4dc3ff', C: '#ffb84d', D: '#ff4d6d' }[grade];
+  $('rGrade').textContent = grade; $('rGrade').style.color = gc;
+  $('rTitle').textContent = `${S.name} · ${{ easy: 'Лёгкая', normal: 'Средняя', hard: 'Сложная' }[settings.diff]}`;
+  $('rScore').textContent = S.score.toLocaleString('ru-RU');
+  $('rAcc').textContent = acc.toFixed(1) + '%';
+  $('rCombo').textContent = S.maxCombo;
+  $('rP').textContent = S.counts.p; $('rGr').textContent = S.counts.g; $('rGd').textContent = S.counts.d; $('rM').textContent = S.counts.m;
+  const prev = loadJSON(bestKey(), null);
+  if (!prev || acc > prev.acc) saveJSON(bestKey(), { acc, score: S.score });
+  stopAudio();
+  show('sResult');
+}
+
+/* ---------------------------- Пауза ---------------------------- */
+async function pause() {
+  if (!S.running || S.paused || S.finishing) return;
+  S.paused = true; S.held.fill(null);
+  await actx.suspend();
+  show('sPause');
+}
+async function resume() {
+  show(null);
+  S.resuming = performance.now() + 1500;
+  setTimeout(async () => { await actx.resume(); S.paused = false; S.resuming = 0; }, 1500);
+}
+
+/* ---------------------------- Ввод ---------------------------- */
+const down = new Set();
+addEventListener('keydown', e => {
+  if (e.code === 'Escape') { if (S.paused) { if (!S.resuming) resume(); } else pause(); return; }
+  if (e.code === 'Backquote' && S.running) { e.preventDefault(); startGame(); return; }
+  const l = KEYCODES[e.code];
+  if (l === undefined || e.repeat || down.has(e.code)) return;
+  down.add(e.code); e.preventDefault();
+  press(l, e.timeStamp);
+});
+addEventListener('keyup', e => {
+  const l = KEYCODES[e.code]; if (l === undefined) return;
+  down.delete(e.code); release(l, e.timeStamp);
+});
+addEventListener('blur', () => { if (S.running && !S.paused) pause(); });
+
+/* ---------------------------- Отрисовка ---------------------------- */
+let W = 0, H = 0, dpr = 1;
+function resize() {
+  dpr = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight;
+  cv.width = W * dpr; cv.height = H * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+addEventListener('resize', resize); resize();
+
+const approach = () => 2.35 - settings.speed * 0.17; // сек от появления до линии (7 → ~1.16с)
+
+function rrect(x, y, w, h, r) {
+  r = Math.min(r, w / 2, h / 2);
+  g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r);
+  g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath();
+}
+
+function drawBackground(time) {
+  g.fillStyle = '#0a0b14'; g.fillRect(0, 0, W, H);
+  let bass = 0;
+  if (S.analyser && S.running && !S.paused) {
+    S.analyser.getByteFrequencyData(S.freqData);
+    for (let i = 0; i < 6; i++) bass += S.freqData[i];
+    bass = bass / 6 / 255;
+  }
+  const gr = g.createRadialGradient(W / 2, H * 0.55, 0, W / 2, H * 0.55, Math.max(W, H) * 0.7);
+  gr.addColorStop(0, `rgba(80,90,255,${0.10 + bass * 0.28})`);
+  gr.addColorStop(1, 'rgba(10,11,20,0)');
+  g.fillStyle = gr; g.fillRect(0, 0, W, H);
+  // спектр по бокам
+  if (S.freqData && S.running) {
+    const bars = 28, bw = W / 2 / bars;
+    for (let i = 0; i < bars; i++) {
+      const v = S.freqData[Math.min(S.freqData.length - 1, i * 2)] / 255, h = v * H * 0.35;
+      g.fillStyle = `rgba(108,123,255,${0.06 + v * 0.18})`;
+      g.fillRect(W / 2 - (i + 1) * bw, H - h, bw - 2, h);
+      g.fillRect(W / 2 + i * bw, H - h, bw - 2, h);
+    }
+  }
+}
+
+function frame(now) {
+  requestAnimationFrame(frame);
+  drawBackground(now);
+  if (!S.running) return;
+  const dtms = 16; // для анимаций
+  let t = S.paused ? (S._lastT ?? 0) : songNow();
+  S._lastT = t;
+  if (!S.paused && !S.resuming) update(t);
+
+  const pw = Math.min(W * 0.92, 440), lw = pw / LANES, px = (W - pw) / 2;
+  const hitY = H * 0.84, top = 0, T = approach();
+  const sx = S.shake > 0 ? (Math.random() - 0.5) * S.shake * 14 : 0;
+  g.save(); g.translate(sx, 0);
+
+  // поле
+  g.fillStyle = 'rgba(14,16,34,.82)'; g.fillRect(px, top, pw, H);
+  for (let l = 0; l < LANES; l++) {
+    const x = px + l * lw;
+    if (S.flash[l] > 0 || S.pressed[l]) {
+      const a = S.pressed[l] ? 0.28 : S.flash[l] * 0.2;
+      const lg = g.createLinearGradient(0, hitY - 280, 0, hitY);
+      lg.addColorStop(0, 'rgba(0,0,0,0)'); lg.addColorStop(1, LANE_COLORS[l] + Math.round(a * 255).toString(16).padStart(2, '0'));
+      g.fillStyle = lg; g.fillRect(x, hitY - 280, lw, 280);
+    }
+    S.flash[l] = Math.max(0, S.flash[l] - 0.07);
+    g.fillStyle = 'rgba(255,255,255,.06)'; g.fillRect(x, 0, 1, H);
+  }
+  g.fillStyle = 'rgba(255,255,255,.06)'; g.fillRect(px + pw, 0, 1, H);
+
+  // линия попаданий
+  g.fillStyle = 'rgba(255,255,255,.85)'; g.fillRect(px, hitY - 2, pw, 4);
+  for (let l = 0; l < LANES; l++) {
+    const x = px + l * lw;
+    g.fillStyle = S.pressed[l] ? LANE_COLORS[l] : 'rgba(255,255,255,.08)';
+    rrect(x + 4, hitY + 8, lw - 8, 46, 10); g.fill();
+    g.fillStyle = S.pressed[l] ? '#0a0b14' : LANE_COLORS[l];
+    g.font = '700 20px system-ui'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillText(KEYLABELS[l], x + lw / 2, hitY + 32);
+  }
+
+  // ноты
+  const nh = Math.max(18, lw * 0.28);
+  for (let l = 0; l < LANES; l++) {
+    const q = S.lanes[l], x = px + l * lw;
+    for (let i = Math.max(0, S.laneIdx[l] - 1); i < q.length; i++) {
+      const n = q[i];
+      if (n.t - t > T + 0.1) break;
+      if (n.st === 2 && !n.end) continue;
+      if (n.st === 2 && n.end && n.end < t) continue;
+      const y = hitY - (n.t - t) / T * (hitY - top);
+      if (n.end) {
+        const y2 = hitY - (n.end - t) / T * (hitY - top);
+        const headY = n.st === 1 ? hitY : y;
+        const dead = n.st === 3;
+        const col = dead ? '#555a7a' : LANE_COLORS[l];
+        g.globalAlpha = dead ? 0.5 : 0.55;
+        g.fillStyle = col; rrect(x + lw * 0.2, Math.min(y2, headY), lw * 0.6, Math.abs(headY - y2), 8); g.fill();
+        g.globalAlpha = 1;
+        if (n.st === 1) { g.fillStyle = '#fff'; g.globalAlpha = 0.5; rrect(x + lw * 0.2, y2, lw * 0.6, Math.max(0, hitY - y2), 8); g.fill(); g.globalAlpha = 1; }
+      }
+      if (n.st === 3) { g.globalAlpha = 0.35; }
+      if (n.st === 1) { /* голова уже сыграна — рисуем на линии */ }
+      const ny = n.end && n.st === 1 ? hitY : y;
+      g.fillStyle = n.st === 3 ? '#555a7a' : LANE_COLORS[l];
+      g.shadowColor = LANE_COLORS[l]; g.shadowBlur = n.st === 3 ? 0 : 14;
+      rrect(x + 5, ny - nh / 2, lw - 10, nh, 8); g.fill();
+      g.shadowBlur = 0;
+      g.fillStyle = 'rgba(255,255,255,.35)'; rrect(x + 9, ny - nh / 2 + 3, lw - 18, 4, 2); g.fill();
+      g.globalAlpha = 1;
+    }
+  }
+
+  // эффекты попаданий
+  S.pops = S.pops.filter(p => p.age < 1);
+  for (const p of S.pops) {
+    p.age += 0.06;
+    const cx = px + p.lane * lw + lw / 2;
+    g.strokeStyle = p.col; g.globalAlpha = 1 - p.age; g.lineWidth = 4 * (1 - p.age) + 1;
+    g.beginPath(); g.arc(cx, hitY, 14 + p.age * 46, 0, Math.PI * 2); g.stroke(); g.globalAlpha = 1;
+  }
+  // удерживаемые ноты — свечение
+  for (let l = 0; l < LANES; l++) if (S.held[l]) {
+    g.fillStyle = LANE_COLORS[l]; g.globalAlpha = 0.35 + 0.2 * Math.sin(now / 60);
+    rrect(px + l * lw + 2, hitY - 24, lw - 4, 48, 12); g.fill(); g.globalAlpha = 1;
+  }
+  g.restore();
+  S.shake = Math.max(0, S.shake - 0.03); S.pulse = Math.max(0, S.pulse - 0.06);
+
+  // HUD
+  g.textBaseline = 'alphabetic';
+  g.fillStyle = '#fff'; g.textAlign = 'left'; g.font = '700 26px system-ui';
+  const hx = Math.max(16, px - 190);
+  if (W > 760) {
+    g.fillText(S.score.toLocaleString('ru-RU'), hx, 44);
+    g.font = '15px system-ui'; g.fillStyle = '#8b90b8'; g.fillText('очки', hx, 64);
+    g.fillStyle = '#fff'; g.font = '700 22px system-ui'; g.fillText(accuracy().toFixed(1) + '%', hx, 110);
+    g.font = '15px system-ui'; g.fillStyle = '#8b90b8'; g.fillText('точность', hx, 130);
+  } else {
+    g.fillText(S.score.toLocaleString('ru-RU'), 14, 36);
+    g.font = '600 16px system-ui'; g.fillStyle = '#8b90b8'; g.fillText(accuracy().toFixed(1) + '%', 14, 58);
+  }
+  // прогресс
+  const prog = Math.max(0, Math.min(1, t / S.feats.duration));
+  g.fillStyle = 'rgba(255,255,255,.1)'; g.fillRect(0, 0, W, 4);
+  g.fillStyle = '#6c7bff'; g.fillRect(0, 0, W * prog, 4);
+
+  // комбо и вердикт
+  if (S.combo > 1) {
+    const sc = 1 + S.pulse * 0.15;
+    g.save(); g.translate(W / 2, H * 0.38); g.scale(sc, sc);
+    g.textAlign = 'center'; g.fillStyle = 'rgba(255,255,255,.9)'; g.font = '800 60px system-ui';
+    g.fillText(S.combo, 0, 0);
+    g.font = '600 16px system-ui'; g.fillStyle = '#8b90b8'; g.fillText('КОМБО', 0, 26);
+    g.restore();
+  }
+  if (S.judgeText) {
+    const j = S.judgeText; j.age += 0.03;
+    if (j.age < 1) {
+      g.globalAlpha = 1 - j.age; g.fillStyle = j.col; g.textAlign = 'center'; g.font = '800 28px system-ui';
+      g.fillText(j.txt, W / 2, H * 0.54 - j.age * 14); g.globalAlpha = 1;
+    }
+  }
+  if (t < -0.2) {
+    g.fillStyle = 'rgba(255,255,255,.8)'; g.textAlign = 'center'; g.font = '700 32px system-ui';
+    g.fillText('Приготовься…', W / 2, H * 0.3);
+  }
+  if (S.resuming) {
+    const left = Math.max(0, Math.ceil((S.resuming - performance.now()) / 500));
+    g.fillStyle = '#fff'; g.textAlign = 'center'; g.font = '800 80px system-ui';
+    g.fillText(left > 0 ? left : 'GO', W / 2, H * 0.42);
+  }
+}
+requestAnimationFrame(frame);
+
+/* ---------------------------- UI-обвязка ---------------------------- */
+const drop = $('drop'), fileInput = $('fileInput');
+drop.onclick = () => fileInput.click();
+fileInput.onchange = () => { if (fileInput.files[0]) handleFile(fileInput.files[0]); fileInput.value = ''; };
+['dragenter', 'dragover'].forEach(ev => addEventListener(ev, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave', 'drop'].forEach(ev => addEventListener(ev, e => { e.preventDefault(); drop.classList.remove('over'); }));
+addEventListener('drop', e => { const f = e.dataTransfer.files[0]; if (f && $('sMenu').classList.contains('show')) handleFile(f); });
+
+document.querySelectorAll('[data-diff]').forEach(b => b.onclick = () => setDiff(b.dataset.diff));
+function bindRange(id, vId, key, fmt) {
+  const el = $(id), v = $(vId); el.value = settings[key];
+  const upd = () => { settings[key] = +el.value; v.textContent = fmt(settings[key]); saveJSON('bf_settings', settings); };
+  el.oninput = upd; v.textContent = fmt(settings[key]);
+}
+bindRange('optSpeed', 'vSpeed', 'speed', v => v);
+bindRange('optOffset', 'vOffset', 'offset', v => (v > 0 ? '+' : '') + v);
+bindRange('optVol', 'vVol', 'volume', v => v + '%');
+$('optTick').checked = settings.tick; $('optTick').onchange = e => { settings.tick = e.target.checked; saveJSON('bf_settings', settings); };
+
+$('btnPlay').onclick = () => startGame();
+$('btnBack').onclick = () => { stopAudio(); show('sMenu'); };
+$('btnResume').onclick = () => resume();
+$('btnRetry1').onclick = async () => { S.paused = false; startGame(); };
+$('btnQuit').onclick = () => { stopAudio(); S.paused = false; setDiff(settings.diff); show('sReady'); };
+$('btnRetry2').onclick = () => startGame();
+$('btnMenu2').onclick = () => { setDiff(settings.diff); show('sReady'); };
+</script>
+</body>
+</html>
