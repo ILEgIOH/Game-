@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/laburnum_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/laburnum_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/laburnum_slab_top"
+    }
+  }
+}

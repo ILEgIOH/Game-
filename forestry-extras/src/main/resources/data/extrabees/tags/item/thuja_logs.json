@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:stripped_thuja_log",
+    "extrabees:stripped_thuja_wood",
+    "extrabees:thuja_log",
+    "extrabees:thuja_wood"
+  ]
+}

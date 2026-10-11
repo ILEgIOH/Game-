@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:hemlock_log",
+    "extrabees:hemlock_wood",
+    "extrabees:stripped_hemlock_log",
+    "extrabees:stripped_hemlock_wood"
+  ]
+}

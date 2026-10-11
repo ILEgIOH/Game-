@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "extrabees:block/red_oak_planks",
+    "side": "extrabees:block/red_oak_planks",
+    "top": "extrabees:block/red_oak_planks"
+  }
+}

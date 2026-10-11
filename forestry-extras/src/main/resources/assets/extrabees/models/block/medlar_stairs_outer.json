@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "extrabees:block/medlar_planks",
+    "side": "extrabees:block/medlar_planks",
+    "top": "extrabees:block/medlar_planks"
+  }
+}

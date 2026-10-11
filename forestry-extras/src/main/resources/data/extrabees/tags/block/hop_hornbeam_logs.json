@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:hop_hornbeam_log",
+    "extrabees:hop_hornbeam_wood",
+    "extrabees:stripped_hop_hornbeam_log",
+    "extrabees:stripped_hop_hornbeam_wood"
+  ]
+}

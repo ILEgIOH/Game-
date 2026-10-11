@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/neem_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/neem_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/neem_slab_top"
+    }
+  }
+}

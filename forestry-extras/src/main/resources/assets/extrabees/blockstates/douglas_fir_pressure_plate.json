@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "extrabees:block/douglas_fir_pressure_plate"
+    },
+    "powered=true": {
+      "model": "extrabees:block/douglas_fir_pressure_plate_down"
+    }
+  }
+}

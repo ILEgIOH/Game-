@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "extrabees:block/hemlock_planks",
+    "side": "extrabees:block/hemlock_planks",
+    "top": "extrabees:block/hemlock_planks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "extrabees:block/hop_hornbeam_planks",
+    "side": "extrabees:block/hop_hornbeam_planks",
+    "top": "extrabees:block/hop_hornbeam_planks"
+  }
+}

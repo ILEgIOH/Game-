@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:hackberry_log",
+    "extrabees:hackberry_wood",
+    "extrabees:stripped_hackberry_log",
+    "extrabees:stripped_hackberry_wood"
+  ]
+}

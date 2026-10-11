@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/lilac_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/lilac_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/lilac_slab_top"
+    }
+  }
+}

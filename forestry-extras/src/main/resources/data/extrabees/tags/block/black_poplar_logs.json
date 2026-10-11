@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:black_poplar_log",
+    "extrabees:black_poplar_wood",
+    "extrabees:stripped_black_poplar_log",
+    "extrabees:stripped_black_poplar_wood"
+  ]
+}

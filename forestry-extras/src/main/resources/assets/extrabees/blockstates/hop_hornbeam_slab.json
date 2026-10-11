@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/hop_hornbeam_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/hop_hornbeam_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/hop_hornbeam_slab_top"
+    }
+  }
+}

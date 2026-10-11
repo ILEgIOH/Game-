@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/box_elder",
+  "chance": 0.07,
+  "first": "forestry:maple",
+  "second": "extrabees:ash",
+  "result": "extrabees:box_elder"
+}

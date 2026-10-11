@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/black_locust_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/black_locust_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/black_locust_slab_top"
+    }
+  }
+}

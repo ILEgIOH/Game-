@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "extrabees:block/apricot_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "extrabees:block/apricot_wood"
+    },
+    "axis=z": {
+      "model": "extrabees:block/apricot_wood",
+      "x": 90
+    }
+  }
+}

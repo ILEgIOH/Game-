@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/cork_oak",
+  "chance": 0.06,
+  "first": "forestry:oak",
+  "second": "forestry:olive",
+  "result": "extrabees:cork_oak"
+}

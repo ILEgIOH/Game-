@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/zelkova",
+  "chance": 0.07,
+  "first": "forestry:elm",
+  "second": "forestry:beech",
+  "result": "extrabees:zelkova"
+}

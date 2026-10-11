@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "extrabees:block/red_oak_pressure_plate"
+    },
+    "powered=true": {
+      "model": "extrabees:block/red_oak_pressure_plate_down"
+    }
+  }
+}

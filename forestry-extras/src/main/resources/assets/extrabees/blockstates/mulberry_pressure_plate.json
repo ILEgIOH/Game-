@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "extrabees:block/mulberry_pressure_plate"
+    },
+    "powered=true": {
+      "model": "extrabees:block/mulberry_pressure_plate_down"
+    }
+  }
+}

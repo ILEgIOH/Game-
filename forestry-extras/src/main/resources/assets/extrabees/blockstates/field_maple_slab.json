@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/field_maple_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/field_maple_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/field_maple_slab_top"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "extrabees:block/pecan_log",
+    "side": "extrabees:block/pecan_log"
+  }
+}

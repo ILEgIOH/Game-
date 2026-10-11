@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/red_oak_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/red_oak_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/red_oak_slab_top"
+    }
+  }
+}

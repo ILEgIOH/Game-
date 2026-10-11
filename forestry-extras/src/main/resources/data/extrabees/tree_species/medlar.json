@@ -1,0 +1,27 @@
+{
+  "dominant": true,
+  "escritoire_color": 5144116,
+  "genome": {
+    "forestry:height": {
+      "value": 1.0
+    },
+    "forestry:fruits": {
+      "value": "extrabees:fruit_medlar"
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.2
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "mespilus",
+  "rarity": 0.002,
+  "species": "germanica"
+}

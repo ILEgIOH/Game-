@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/medlar_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/medlar_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/medlar_slab_top"
+    }
+  }
+}

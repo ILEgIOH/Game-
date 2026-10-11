@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:stripped_whitebeam_log",
+    "extrabees:stripped_whitebeam_wood",
+    "extrabees:whitebeam_log",
+    "extrabees:whitebeam_wood"
+  ]
+}

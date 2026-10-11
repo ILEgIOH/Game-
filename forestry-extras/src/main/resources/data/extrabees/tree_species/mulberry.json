@@ -1,0 +1,27 @@
+{
+  "dominant": true,
+  "escritoire_color": 5147700,
+  "genome": {
+    "forestry:height": {
+      "value": 1.0
+    },
+    "forestry:fruits": {
+      "value": "extrabees:fruit_mulberry"
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.2
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "morus",
+  "rarity": 0.002,
+  "species": "alba"
+}

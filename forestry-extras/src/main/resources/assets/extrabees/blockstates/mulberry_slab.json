@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/mulberry_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/mulberry_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/mulberry_slab_top"
+    }
+  }
+}

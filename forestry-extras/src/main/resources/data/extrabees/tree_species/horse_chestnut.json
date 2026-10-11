@@ -5,6 +5,13 @@
     "forestry:height": {
       "value": 1.0
     },
+    "forestry:fruits": {
+      "value": "extrabees:fruit_conker"
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.2
+    },
     "forestry:saplings": {
       "dominant": true,
       "value": 0.035

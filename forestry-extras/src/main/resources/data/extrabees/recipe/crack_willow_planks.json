@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "extrabees:crack_willow_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "extrabees:crack_willow_planks"
+  }
+}

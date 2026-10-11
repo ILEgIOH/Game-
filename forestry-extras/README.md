@@ -35,7 +35,7 @@ This catches datapack/recipe/registry errors; it cannot check visuals.
 
 ## Extra Trees
 Written only against Forestry's public API (`forestry-api/`, MIT licensed, copied from the alpha8 tag), so it does not touch Forestry internals.
-- Trees (15): Ash, Cedar, Aspen, Alder, Hazel, Hornbeam, Hawthorn, Rowan, Juniper, Cypress, Sycamore, Horse Chestnut, Eucalyptus, Holly, Yew - each with log, stripped log, wood, stripped wood, planks, stairs, slab, fence, fence gate, door, trapdoor, button, pressure plate, leaves.
+- Trees (48): see `TREES` in `tools/gen_trees.py` - each with log, stripped log, wood, stripped wood, planks, stairs, slab, fence, fence gate, door, trapdoor, button, pressure plate, leaves.
 - Generator: `python3 tools/gen_data.py && python3 tools/gen_trees.py` (run in this order, the second merges lang files).
   Textures are luminance recolours of the vanilla oak textures; for private/hobby use.
 - Code: `src/main/java/extrabees/trees/` (`ExtraTreesPlugin` is found by Forestry through `META-INF/services`).
@@ -46,3 +46,7 @@ Written only against Forestry's public API (`forestry-api/`, MIT licensed, copie
 Headless self-test: `gradle runServer -Pselftest=true` grows every tree after startup, logs `SELFTEST ...` lines and stops.
 
 Resource check: `python3 tools/validate_resources.py`.
+
+## Fruits
+12 fruits (hazelnut, haw, rowanberry, conker, sloe, medlar, mulberry, apricot, peach, quince, fig, pecan) are food items and ripen on genetic leaves
+(fruit overlay sprite). Hazel, hawthorn, rowan, horse chestnut and the 8 fruit trees carry the fruit gene. Forestry's squeezer turns them into juice / seed oil.

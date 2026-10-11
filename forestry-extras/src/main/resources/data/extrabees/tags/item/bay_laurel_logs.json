@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:bay_laurel_log",
+    "extrabees:bay_laurel_wood",
+    "extrabees:stripped_bay_laurel_log",
+    "extrabees:stripped_bay_laurel_wood"
+  ]
+}

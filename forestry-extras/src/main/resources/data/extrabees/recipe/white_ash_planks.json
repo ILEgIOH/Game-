@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "extrabees:white_ash_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "extrabees:white_ash_planks"
+  }
+}

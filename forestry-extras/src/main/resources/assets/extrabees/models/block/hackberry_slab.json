@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "extrabees:block/hackberry_planks",
+    "side": "extrabees:block/hackberry_planks",
+    "top": "extrabees:block/hackberry_planks"
+  }
+}

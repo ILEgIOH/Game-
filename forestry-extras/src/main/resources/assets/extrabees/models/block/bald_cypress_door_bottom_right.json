@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right",
+  "textures": {
+    "bottom": "extrabees:block/bald_cypress_door_bottom",
+    "top": "extrabees:block/bald_cypress_door_top"
+  }
+}

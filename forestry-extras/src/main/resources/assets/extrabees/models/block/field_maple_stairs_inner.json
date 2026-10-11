@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "extrabees:block/field_maple_planks",
+    "side": "extrabees:block/field_maple_planks",
+    "top": "extrabees:block/field_maple_planks"
+  }
+}

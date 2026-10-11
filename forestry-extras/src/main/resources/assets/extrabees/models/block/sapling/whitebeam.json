@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "extrabees:block/whitebeam_sapling"
+  }
+}

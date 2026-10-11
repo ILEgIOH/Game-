@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:douglas_fir_log",
+    "extrabees:douglas_fir_wood",
+    "extrabees:stripped_douglas_fir_log",
+    "extrabees:stripped_douglas_fir_wood"
+  ]
+}

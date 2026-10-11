@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "extrabees:block/laburnum_log",
+    "side": "extrabees:block/laburnum_log"
+  }
+}

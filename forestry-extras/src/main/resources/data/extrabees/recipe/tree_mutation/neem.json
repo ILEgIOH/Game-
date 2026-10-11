@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/neem",
+  "chance": 0.06,
+  "first": "forestry:mahogany",
+  "second": "forestry:acacia",
+  "result": "extrabees:neem"
+}

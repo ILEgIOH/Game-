@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/medlar",
+  "chance": 0.07,
+  "first": "forestry:pear",
+  "second": "extrabees:hawthorn",
+  "result": "extrabees:medlar"
+}

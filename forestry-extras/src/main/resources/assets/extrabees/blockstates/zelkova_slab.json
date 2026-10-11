@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/zelkova_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/zelkova_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/zelkova_slab_top"
+    }
+  }
+}

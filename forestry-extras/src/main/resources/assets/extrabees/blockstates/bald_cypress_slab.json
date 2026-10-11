@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/bald_cypress_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/bald_cypress_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/bald_cypress_slab_top"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "extrabees:hop_hornbeam_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "extrabees:hop_hornbeam_planks"
+  }
+}

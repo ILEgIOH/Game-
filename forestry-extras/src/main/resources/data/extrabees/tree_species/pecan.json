@@ -1,0 +1,28 @@
+{
+  "dominant": true,
+  "escritoire_color": 4881456,
+  "genome": {
+    "forestry:height": {
+      "value": 1.0
+    },
+    "forestry:fruits": {
+      "value": "extrabees:fruit_pecan"
+    },
+    "forestry:yield": {
+      "dominant": true,
+      "value": 0.2
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "carya",
+  "rarity": 0.002,
+  "species": "illinoinensis",
+  "temperature": "warm"
+}

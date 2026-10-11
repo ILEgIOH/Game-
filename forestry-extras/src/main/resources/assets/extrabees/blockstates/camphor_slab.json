@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/camphor_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/camphor_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/camphor_slab_top"
+    }
+  }
+}

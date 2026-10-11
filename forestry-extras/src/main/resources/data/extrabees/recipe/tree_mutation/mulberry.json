@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/mulberry",
+  "chance": 0.07,
+  "first": "forestry:plum",
+  "second": "forestry:elm",
+  "result": "extrabees:mulberry"
+}

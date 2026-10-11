@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "extrabees:hickory_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "extrabees:hickory_planks"
+  }
+}

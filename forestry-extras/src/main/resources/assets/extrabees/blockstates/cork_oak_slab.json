@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/cork_oak_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/cork_oak_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/cork_oak_slab_top"
+    }
+  }
+}

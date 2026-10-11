@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/camphor",
+  "chance": 0.06,
+  "first": "forestry:mahogany",
+  "second": "extrabees:bay_laurel",
+  "result": "extrabees:camphor"
+}

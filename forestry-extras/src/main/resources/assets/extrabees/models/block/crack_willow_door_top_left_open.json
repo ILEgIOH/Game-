@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "extrabees:block/crack_willow_door_bottom",
+    "top": "extrabees:block/crack_willow_door_top"
+  }
+}

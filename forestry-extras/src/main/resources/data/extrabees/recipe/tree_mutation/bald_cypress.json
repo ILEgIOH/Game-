@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/bald_cypress",
+  "chance": 0.06,
+  "first": "extrabees:cypress",
+  "second": "forestry:willow",
+  "result": "extrabees:bald_cypress"
+}

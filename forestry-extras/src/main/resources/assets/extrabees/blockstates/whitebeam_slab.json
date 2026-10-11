@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/whitebeam_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/whitebeam_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/whitebeam_slab_top"
+    }
+  }
+}

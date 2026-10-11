@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "extrabees:red_oak_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "extrabees:red_oak_planks"
+  }
+}

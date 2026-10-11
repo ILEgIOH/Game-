@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "extrabees:block/honey_locust_planks",
+    "side": "extrabees:block/honey_locust_planks",
+    "top": "extrabees:block/honey_locust_planks"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "extrabees:block/crack_willow_planks"
+  }
+}

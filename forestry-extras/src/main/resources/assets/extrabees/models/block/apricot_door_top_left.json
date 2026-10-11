@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "extrabees:block/apricot_door_bottom",
+    "top": "extrabees:block/apricot_door_top"
+  }
+}

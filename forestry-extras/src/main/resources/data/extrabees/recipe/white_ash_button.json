@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "extrabees:white_ash_planks"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "extrabees:white_ash_button"
+  }
+}

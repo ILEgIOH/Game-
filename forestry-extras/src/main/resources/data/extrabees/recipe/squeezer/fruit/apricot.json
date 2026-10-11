@@ -1,0 +1,21 @@
+{
+  "type": "forestry:squeezer",
+  "id": "extrabees:squeezer/fruit/apricot",
+  "chance": 0.05,
+  "output": {
+    "stack": {
+      "amount": 50,
+      "id": "forestry:fruit_juice"
+    }
+  },
+  "remnant": {
+    "count": 1,
+    "id": "forestry:mulch"
+  },
+  "resources": [
+    {
+      "item": "extrabees:apricot"
+    }
+  ],
+  "time": 20
+}

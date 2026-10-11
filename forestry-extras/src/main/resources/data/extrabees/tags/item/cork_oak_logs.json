@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:cork_oak_log",
+    "extrabees:cork_oak_wood",
+    "extrabees:stripped_cork_oak_log",
+    "extrabees:stripped_cork_oak_wood"
+  ]
+}

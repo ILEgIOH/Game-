@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "extrabees:block/black_poplar_log",
+    "side": "extrabees:block/black_poplar_log"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "forestry:squeezer",
+  "id": "extrabees:squeezer/fruit/conker",
+  "chance": 0.05,
+  "output": {
+    "stack": {
+      "amount": 80,
+      "id": "forestry:seed_oil"
+    }
+  },
+  "remnant": {
+    "count": 1,
+    "id": "forestry:mulch"
+  },
+  "resources": [
+    {
+      "item": "extrabees:conker"
+    }
+  ],
+  "time": 20
+}

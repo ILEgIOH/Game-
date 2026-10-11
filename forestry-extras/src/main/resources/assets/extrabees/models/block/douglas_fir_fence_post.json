@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "extrabees:block/douglas_fir_planks"
+  }
+}

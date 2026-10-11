@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/black_poplar",
+  "chance": 0.07,
+  "first": "forestry:poplar",
+  "second": "extrabees:aspen",
+  "result": "extrabees:black_poplar"
+}

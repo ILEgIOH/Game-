@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/white_ash_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/white_ash_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/white_ash_slab_top"
+    }
+  }
+}

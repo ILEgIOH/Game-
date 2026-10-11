@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "extrabees:block/hop_hornbeam_pressure_plate"
+    },
+    "powered=true": {
+      "model": "extrabees:block/hop_hornbeam_pressure_plate_down"
+    }
+  }
+}

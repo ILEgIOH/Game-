@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/laburnum",
+  "chance": 0.07,
+  "first": "extrabees:black_locust",
+  "second": "extrabees:lilac",
+  "result": "extrabees:laburnum"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/hickory",
+  "chance": 0.06,
+  "first": "forestry:walnut",
+  "second": "forestry:chestnut",
+  "result": "extrabees:hickory"
+}

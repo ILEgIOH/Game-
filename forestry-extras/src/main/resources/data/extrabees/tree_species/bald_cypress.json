@@ -1,0 +1,22 @@
+{
+  "dominant": true,
+  "escritoire_color": 5143098,
+  "genome": {
+    "forestry:height": {
+      "value": 1.0
+    },
+    "forestry:saplings": {
+      "dominant": true,
+      "value": 0.035
+    },
+    "forestry:sappiness": {
+      "dominant": true,
+      "value": 0.2
+    }
+  },
+  "genus": "taxodium",
+  "rarity": 0.003,
+  "species": "distichum",
+  "temperature": "warm",
+  "humidity": "damp"
+}

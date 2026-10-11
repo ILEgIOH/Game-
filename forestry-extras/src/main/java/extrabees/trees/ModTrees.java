@@ -1,13 +1,18 @@
 package extrabees.trees;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import extrabees.ExtraBees;
@@ -17,8 +22,13 @@ public final class ModTrees {
 	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ExtraBees.MOD_ID);
 
 	static final List<TreeWood> WOODS = new ArrayList<>();
+	static final Map<String, DeferredItem<Item>> FRUIT_ITEMS = new HashMap<>();
 
 	static {
+		for (FruitDef fruit : GeneratedFruits.DEFS) {
+			FRUIT_ITEMS.put(fruit.id(), ITEMS.registerItem(fruit.id(), props -> new Item(props.food(
+				new FoodProperties.Builder().nutrition(fruit.nutrition()).saturationModifier(fruit.saturation()).build()))));
+		}
 		for (TreeDef def : GeneratedTrees.DEFS) {
 			WOODS.add(new TreeWood(def));
 		}
@@ -49,8 +59,8 @@ public final class ModTrees {
 		return WOODS.stream().map(w -> w.def.id()).toList();
 	}
 
-	public static List<net.minecraft.world.item.Item> allItems() {
-		return ITEMS.getEntries().stream().<net.minecraft.world.item.Item>map(h -> h.get()).toList();
+	public static List<Item> allItems() {
+		return ITEMS.getEntries().stream().<Item>map(h -> h.get()).toList();
 	}
 
 	private ModTrees() {

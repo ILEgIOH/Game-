@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/whitebeam",
+  "chance": 0.07,
+  "first": "extrabees:rowan",
+  "second": "forestry:birch",
+  "result": "extrabees:whitebeam"
+}

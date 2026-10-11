@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "extrabees:field_maple_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "extrabees:field_maple_planks"
+  }
+}

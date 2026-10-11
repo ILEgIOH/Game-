@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:blackthorn_log",
+    "extrabees:blackthorn_wood",
+    "extrabees:stripped_blackthorn_log",
+    "extrabees:stripped_blackthorn_wood"
+  ]
+}

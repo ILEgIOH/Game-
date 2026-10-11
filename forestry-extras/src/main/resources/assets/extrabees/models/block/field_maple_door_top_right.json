@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right",
+  "textures": {
+    "bottom": "extrabees:block/field_maple_door_bottom",
+    "top": "extrabees:block/field_maple_door_top"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "extrabees:block/peach_planks",
+    "side": "extrabees:block/peach_planks",
+    "top": "extrabees:block/peach_planks"
+  }
+}

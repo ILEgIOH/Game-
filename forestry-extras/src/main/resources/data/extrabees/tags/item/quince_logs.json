@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:quince_log",
+    "extrabees:quince_wood",
+    "extrabees:stripped_quince_log",
+    "extrabees:stripped_quince_wood"
+  ]
+}

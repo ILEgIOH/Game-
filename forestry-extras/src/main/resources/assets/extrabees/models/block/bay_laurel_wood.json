@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "extrabees:block/bay_laurel_log",
+    "side": "extrabees:block/bay_laurel_log"
+  }
+}

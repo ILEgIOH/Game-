@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:camphor_log",
+    "extrabees:camphor_wood",
+    "extrabees:stripped_camphor_log",
+    "extrabees:stripped_camphor_wood"
+  ]
+}

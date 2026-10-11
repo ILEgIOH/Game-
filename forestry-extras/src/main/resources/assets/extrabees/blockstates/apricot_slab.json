@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/apricot_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/apricot_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/apricot_slab_top"
+    }
+  }
+}

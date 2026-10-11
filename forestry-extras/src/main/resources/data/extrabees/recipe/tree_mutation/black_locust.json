@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/black_locust",
+  "chance": 0.07,
+  "first": "forestry:acacia",
+  "second": "extrabees:ash",
+  "result": "extrabees:black_locust"
+}

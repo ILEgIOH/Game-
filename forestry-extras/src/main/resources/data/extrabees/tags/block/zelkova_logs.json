@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:stripped_zelkova_log",
+    "extrabees:stripped_zelkova_wood",
+    "extrabees:zelkova_log",
+    "extrabees:zelkova_wood"
+  ]
+}

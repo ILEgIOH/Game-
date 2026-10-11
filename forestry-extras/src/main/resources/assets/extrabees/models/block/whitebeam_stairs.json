@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "extrabees:block/whitebeam_planks",
+    "side": "extrabees:block/whitebeam_planks",
+    "top": "extrabees:block/whitebeam_planks"
+  }
+}

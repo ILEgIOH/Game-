@@ -21,6 +21,9 @@ public final class ExtraTreesPlugin implements IForestryPlugin {
 
 	@Override
 	public void registerArboriculture(IArboricultureRegistration arboriculture) {
+		for (FruitDef fruit : GeneratedFruits.DEFS) {
+			arboriculture.registerFruit(fruit.fruitId(), new ExtraFruit(fruit, ModTrees.FRUIT_ITEMS.get(fruit.id()).get()));
+		}
 		for (TreeWood wood : ModTrees.WOODS) {
 			TreeDef def = wood.def;
 			arboriculture.registerSpecies(def.speciesId(), def.genus(), def.species(), true, TextColor.fromRgb(def.escritoire()), new ExtraWoodType(wood))

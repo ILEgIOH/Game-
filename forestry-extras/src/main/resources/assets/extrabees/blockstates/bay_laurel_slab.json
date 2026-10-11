@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/bay_laurel_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/bay_laurel_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/bay_laurel_slab_top"
+    }
+  }
+}

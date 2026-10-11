@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:hickory_log",
+    "extrabees:hickory_wood",
+    "extrabees:stripped_hickory_log",
+    "extrabees:stripped_hickory_wood"
+  ]
+}

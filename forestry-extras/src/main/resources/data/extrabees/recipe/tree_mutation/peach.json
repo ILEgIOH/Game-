@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/peach",
+  "chance": 0.06,
+  "first": "extrabees:apricot",
+  "second": "forestry:plum",
+  "result": "extrabees:peach"
+}

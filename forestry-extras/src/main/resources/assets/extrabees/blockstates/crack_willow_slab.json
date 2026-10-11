@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/crack_willow_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/crack_willow_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/crack_willow_slab_top"
+    }
+  }
+}

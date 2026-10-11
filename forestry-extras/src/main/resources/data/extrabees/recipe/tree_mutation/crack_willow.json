@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/crack_willow",
+  "chance": 0.07,
+  "first": "forestry:willow",
+  "second": "extrabees:alder",
+  "result": "extrabees:crack_willow"
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/douglas_fir_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/douglas_fir_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/douglas_fir_slab_top"
+    }
+  }
+}

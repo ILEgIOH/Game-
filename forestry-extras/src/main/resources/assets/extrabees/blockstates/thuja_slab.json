@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/thuja_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/thuja_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/thuja_slab_top"
+    }
+  }
+}

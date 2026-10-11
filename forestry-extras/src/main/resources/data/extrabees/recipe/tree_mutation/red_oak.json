@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/red_oak",
+  "chance": 0.07,
+  "first": "forestry:oak",
+  "second": "forestry:maple",
+  "result": "extrabees:red_oak"
+}

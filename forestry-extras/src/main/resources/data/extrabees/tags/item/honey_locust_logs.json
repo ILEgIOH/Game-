@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:honey_locust_log",
+    "extrabees:honey_locust_wood",
+    "extrabees:stripped_honey_locust_log",
+    "extrabees:stripped_honey_locust_wood"
+  ]
+}

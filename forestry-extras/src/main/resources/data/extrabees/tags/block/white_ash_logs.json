@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:stripped_white_ash_log",
+    "extrabees:stripped_white_ash_wood",
+    "extrabees:white_ash_log",
+    "extrabees:white_ash_wood"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/thuja",
+  "chance": 0.07,
+  "first": "extrabees:cypress",
+  "second": "extrabees:juniper",
+  "result": "extrabees:thuja"
+}

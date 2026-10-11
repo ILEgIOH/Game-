@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/hop_hornbeam",
+  "chance": 0.07,
+  "first": "extrabees:hornbeam",
+  "second": "forestry:elm",
+  "result": "extrabees:hop_hornbeam"
+}

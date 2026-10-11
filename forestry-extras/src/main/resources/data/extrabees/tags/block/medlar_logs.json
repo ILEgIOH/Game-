@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:medlar_log",
+    "extrabees:medlar_wood",
+    "extrabees:stripped_medlar_log",
+    "extrabees:stripped_medlar_wood"
+  ]
+}

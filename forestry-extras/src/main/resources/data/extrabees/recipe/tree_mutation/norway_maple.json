@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/norway_maple",
+  "chance": 0.06,
+  "first": "forestry:maple",
+  "second": "extrabees:sycamore",
+  "result": "extrabees:norway_maple"
+}

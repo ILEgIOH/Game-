@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "extrabees:block/crack_willow_planks"
+  }
+}

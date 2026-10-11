@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/basswood_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/basswood_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/basswood_slab_top"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "extrabees:block/crack_willow_planks",
+    "side": "extrabees:block/crack_willow_planks",
+    "top": "extrabees:block/crack_willow_planks"
+  }
+}

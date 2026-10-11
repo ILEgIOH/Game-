@@ -1,0 +1,8 @@
+{
+  "type": "forestry:tree_mutation",
+  "id": "extrabees:tree_mutation/fig",
+  "chance": 0.06,
+  "first": "forestry:olive",
+  "second": "extrabees:mulberry",
+  "result": "extrabees:fig"
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:neem_log",
+    "extrabees:neem_wood",
+    "extrabees:stripped_neem_log",
+    "extrabees:stripped_neem_wood"
+  ]
+}

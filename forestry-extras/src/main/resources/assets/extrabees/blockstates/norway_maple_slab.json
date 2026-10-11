@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "extrabees:block/norway_maple_slab"
+    },
+    "type=double": {
+      "model": "extrabees:block/norway_maple_planks"
+    },
+    "type=top": {
+      "model": "extrabees:block/norway_maple_slab_top"
+    }
+  }
+}
