@@ -26,4 +26,4 @@ Loaded only when the other mod is present (built-in datapacks in `compat/`, see 
 - **DivineRPG:** Arlemite, Realmite, Rupee, Bloodgem, Torrid
 
 Item ids are checked against the real mod jars. Not done yet: Twilight Forest, AE2, Thermal, Draconic Evolution.
-Bees themselves appear in Forestry's own Apiculture creative tab; the Extra Bees tab holds the combs.
+Bees themselves are listed in the Extra Bees creative tab (via reflection, see `ForestryBridge.java`) and in Forestry's own Apiculture tab.

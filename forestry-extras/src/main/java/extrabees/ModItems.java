@@ -26,7 +26,10 @@ public final class ModItems {
 	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MAIN_TAB = TABS.register("main", () -> CreativeModeTab.builder()
 		.title(Component.translatable("itemGroup." + ExtraBees.MOD_ID + ".main"))
 		.icon(() -> new ItemStack(COMBS.get(0).get()))
-		.displayItems((params, output) -> COMBS.forEach(comb -> output.accept(comb.get())))
+		.displayItems((params, output) -> {
+			ForestryBridge.addBees(output);
+			COMBS.forEach(comb -> output.accept(comb.get()));
+		})
 		.build());
 
 	private ModItems() {

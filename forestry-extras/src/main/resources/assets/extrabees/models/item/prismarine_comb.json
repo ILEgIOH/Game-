@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "extrabees:item/comb"
+    "layer0": "extrabees:item/comb/prismarine"
   }
 }
