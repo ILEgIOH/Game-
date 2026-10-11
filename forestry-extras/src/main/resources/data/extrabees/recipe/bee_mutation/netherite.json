@@ -1,0 +1,13 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.02,
+  "first": "extrabees:diamond",
+  "second": "forestry:demonic",
+  "result": "extrabees:netherite",
+  "conditions": [
+    {
+      "type": "forestry:biome",
+      "biome": "minecraft:is_nether"
+    }
+  ]
+}

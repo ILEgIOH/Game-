@@ -1,0 +1,31 @@
+{
+  "authority": "Extra Bees",
+  "body": 4025312,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "gemma",
+  "outline": 1851304,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:lapis_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:lapis_lazuli"
+    }
+  ],
+  "species": "lazuli"
+}

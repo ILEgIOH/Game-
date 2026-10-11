@@ -1,0 +1,33 @@
+{
+  "authority": "Extra Bees",
+  "body": 16769136,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_nether"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "materia",
+  "outline": 13213994,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:glowstone_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:glowstone_dust"
+    }
+  ],
+  "species": "lucidum",
+  "temperature": "hellish",
+  "humidity": "arid"
+}

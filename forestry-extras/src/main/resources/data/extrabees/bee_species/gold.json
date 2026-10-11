@@ -1,0 +1,32 @@
+{
+  "authority": "Extra Bees",
+  "body": 16767050,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "metallum",
+  "outline": 15251747,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:gold_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:raw_gold"
+    }
+  ],
+  "species": "aurum",
+  "glint": true
+}

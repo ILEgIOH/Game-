@@ -1,0 +1,13 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.1,
+  "first": "forestry:marshy",
+  "second": "forestry:common",
+  "result": "extrabees:slime",
+  "conditions": [
+    {
+      "type": "forestry:biome",
+      "biome": "c:is_swamp"
+    }
+  ]
+}

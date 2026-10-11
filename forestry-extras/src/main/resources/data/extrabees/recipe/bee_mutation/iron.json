@@ -1,0 +1,7 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.1,
+  "first": "extrabees:copper",
+  "second": "forestry:steadfast",
+  "result": "extrabees:iron"
+}

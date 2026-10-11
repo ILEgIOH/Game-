@@ -1,0 +1,33 @@
+{
+  "authority": "Extra Bees",
+  "body": 16051944,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_nether"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "gemma",
+  "outline": 13616573,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:quartz_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:quartz"
+    }
+  ],
+  "species": "quartzum",
+  "temperature": "hellish",
+  "humidity": "arid"
+}

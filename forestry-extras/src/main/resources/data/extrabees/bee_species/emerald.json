@@ -1,0 +1,32 @@
+{
+  "authority": "Extra Bees",
+  "body": 4313963,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "gemma",
+  "outline": 1150015,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:emerald_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:emerald"
+    }
+  ],
+  "species": "smaragdus",
+  "glint": true
+}

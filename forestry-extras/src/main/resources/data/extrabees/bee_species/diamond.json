@@ -1,0 +1,32 @@
+{
+  "authority": "Extra Bees",
+  "body": 8385514,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "gemma",
+  "outline": 2865072,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:diamond_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:diamond"
+    }
+  ],
+  "species": "adamas",
+  "glint": true
+}

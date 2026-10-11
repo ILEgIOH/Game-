@@ -8,5 +8,7 @@ public class ExtraBees {
 	public static final String MOD_ID = "extrabees";
 
 	public ExtraBees(IEventBus modBus) {
+		ModItems.ITEMS.register(modBus);
+		ModItems.TABS.register(modBus);
 	}
 }

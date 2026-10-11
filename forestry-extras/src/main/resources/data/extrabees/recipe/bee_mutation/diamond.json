@@ -1,0 +1,7 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.05,
+  "first": "extrabees:gold",
+  "second": "forestry:imperial",
+  "result": "extrabees:diamond"
+}

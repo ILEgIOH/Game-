@@ -1,0 +1,33 @@
+{
+  "authority": "Extra Bees",
+  "body": 16756768,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_nether"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "materia",
+  "outline": 14248448,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:blaze_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:blaze_powder"
+    }
+  ],
+  "species": "flammeus",
+  "temperature": "hellish",
+  "humidity": "arid"
+}

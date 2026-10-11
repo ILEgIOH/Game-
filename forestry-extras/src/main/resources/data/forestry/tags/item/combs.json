@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "extrabees:copper_comb",
+    "extrabees:iron_comb",
+    "extrabees:gold_comb",
+    "extrabees:coal_comb",
+    "extrabees:redstone_comb",
+    "extrabees:lapis_comb",
+    "extrabees:diamond_comb",
+    "extrabees:emerald_comb",
+    "extrabees:amethyst_comb",
+    "extrabees:quartz_comb",
+    "extrabees:glowstone_comb",
+    "extrabees:blaze_comb",
+    "extrabees:netherite_comb",
+    "extrabees:slime_comb",
+    "extrabees:prismarine_comb"
+  ]
+}

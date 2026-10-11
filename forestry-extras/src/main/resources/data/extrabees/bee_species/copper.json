@@ -1,0 +1,31 @@
+{
+  "authority": "Extra Bees",
+  "body": 14256978,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "metallum",
+  "outline": 11821626,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:copper_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:raw_copper"
+    }
+  ],
+  "species": "cuprum"
+}

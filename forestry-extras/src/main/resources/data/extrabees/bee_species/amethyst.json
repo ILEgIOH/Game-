@@ -1,0 +1,31 @@
+{
+  "authority": "Extra Bees",
+  "body": 12028914,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_cave"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "gemma",
+  "outline": 8015812,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:amethyst_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:amethyst_shard"
+    }
+  ],
+  "species": "amethystus"
+}

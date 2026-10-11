@@ -1,0 +1,32 @@
+{
+  "authority": "Extra Bees",
+  "body": 7919302,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_sea"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "gemma",
+  "outline": 3841169,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:prismarine_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:prismarine_shard"
+    }
+  ],
+  "species": "prismaticus",
+  "humidity": "damp"
+}

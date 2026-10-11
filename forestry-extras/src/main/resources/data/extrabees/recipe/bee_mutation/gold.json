@@ -1,0 +1,7 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.08,
+  "first": "extrabees:iron",
+  "second": "forestry:noble",
+  "result": "extrabees:gold"
+}

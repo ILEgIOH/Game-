@@ -1,0 +1,31 @@
+{
+  "authority": "Extra Bees",
+  "body": 4867392,
+  "dominant": false,
+  "genome": {
+    "forestry:flower_type": {
+      "value": "forestry:flower_type_vanilla"
+    },
+    "forestry:lifespan": {
+      "value": 40
+    },
+    "forestry:speed": {
+      "value": 0.6
+    }
+  },
+  "genus": "materia",
+  "outline": 2829099,
+  "products": [
+    {
+      "chance": 0.3,
+      "item": "extrabees:coal_comb"
+    }
+  ],
+  "specialties": [
+    {
+      "chance": 0.15,
+      "item": "minecraft:coal"
+    }
+  ],
+  "species": "carbo"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.12,
+  "first": "forestry:industrious",
+  "second": "forestry:tricky",
+  "result": "extrabees:redstone"
+}

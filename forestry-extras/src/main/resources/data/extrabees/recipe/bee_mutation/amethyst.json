@@ -1,0 +1,13 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.07,
+  "first": "extrabees:lapis",
+  "second": "forestry:glacial",
+  "result": "extrabees:amethyst",
+  "conditions": [
+    {
+      "type": "forestry:biome",
+      "biome": "c:is_cave"
+    }
+  ]
+}

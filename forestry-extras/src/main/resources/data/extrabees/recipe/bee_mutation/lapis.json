@@ -1,0 +1,7 @@
+{
+  "type": "forestry:bee_mutation",
+  "chance": 0.1,
+  "first": "forestry:noble",
+  "second": "forestry:aquatic",
+  "result": "extrabees:lapis"
+}
